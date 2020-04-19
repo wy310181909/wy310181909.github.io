@@ -1,25 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/04/14/hello-world/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="1405e10057e487686e31e5301cbb4c23c780dafe5540003159dc3d75624b1ea7">e616ba5d347f3df29b34e76fe134e369090a5e9d773c3389a698dcf649e9954010e099e94ff81646fc46ca83a6f07c86cfdd5375b3c6e70cc2d721f545e0e07bf4b954f187abd097500332e00e1a0e845c8ebed8cf98067d88528a0e6c119fecf8c5e528fa13b41c0bea4a65d3118ccf59b06c7de2af80016c2bd2169b54c6a119fc078db311731bbe978e553c68c3e925bc6af488b7226a27b9ff253b23bc07db4ccd5186cf710eebfcf2d53fa42b39a151e89ee3854b91c3a66318c60734a6a0a857b68360a3eacf37a670765e65470aab53894e2d956016cbfa5cc3c5f9b30545425022e57ddfdcb08e6fe4ee79c6cb76f35019111c461e3f97678bb91f66f42a020985de902511eb5389e26e521b9515ddeedf390b7dda47c2900a3cd8aebcd6cc97b82a7eadd41fe0309cff1641f08d85f8243fb2d362c78c25de86c19ca6c428bee039e498c74d80dd666d8aa16bff41de89097430ce00f222a5aa708a3a102495f2bb4fd91b2e08e591df2a33266eeb718390b899461b1c80f07a5a45257fb246c59114afe89ec0205fadd3218fcf2d8fb67567d0938c9a90014aa5b9dde121780f1369a6afdbd43b71beddbc725fbd6874b48aae2255f04a5e4a2b5ed7bf98a4edeb6b186bd0554a2403d60f71b4d45514f235d208f87fa582923e3df2890847e7b561bd871b6327cc76e53224d5f2b367150a4474506f3c5edc0b095dd38e02abad8d18e0eeb4e208f2116c551b184e10e82893b5d0465318e9dd2131c4f38bda660ce9df675590b17a2e918a8d5509b61f21b80bf4d23624da5a2a463305004858d2bc2fabf9b45dac97347d0051d33c22ed5761642551b423ef930fae5976d1499cba3f9130b4164f861e8a50f33f74137ba1a3a77f51ec6f77c029392ee40afb43ad5ddfd74e5f9951476d8ef9c2e9eeb8f8ceac3c6ab9c1257cb1315661138a548627ed955d114ec7c6d7b52b4b39447e0d3f1436ea797431feae571a498cac02f13c90e2035c3db2ef1a9628a6bee8e41df43ba4cd36f190d92e08aa478986ae481e8f5c6e593b4a8d9fed84b764d2f24bf10138cfd1dd9fb76b5d31b77e578ebc1cd76ef354aa020930774ce721a51ec93c9659ff66cf84d3767df9c15f71534bb054e7718a85d0d1fbc6ebf04322e2c53628eb6f3a9c9722466fcf480ecbb1c71af1feb875de0d6140778d7a59c5ec0888c838b8f39f69b47c99d04d0d1879a00993af76c62e2fb7b41f14fd47c06c845e3b2b663b0c04ff603f3eda34bdc2397f87e245cf2dc94b852fa03bbf8563ee9d89d047c86955b665dd8174a1c2f8ac7d167ad58fcd759a47df7a5f59dbb81226dd8aa12f01c3d1f27cb7df76f8607cf9039dc87b93abb6f1820e14b311413c92fd21da9c279649e0cdb798c8babfcb3fda00621f288eccc535501ec429b627cb06118b4170fd070e971f4f3306501c4cff0a2f9f8122b4f9f99a73785b2a0cbe72b66da7dfdfa1a67c1f860194cf263c034d7ab92a930e2fad9e5ef0443efe1dcba89b05b188b1f29c92eea4d5de812683dc68fa0ff9d18f5e72a65fd38e8b87b6200c82caa4e9cc0d119fbca7212b8f60a5508b50cd9d7984de5c5bae629e43b25fc38d27311d6b3942a55f194b4926605c37dba96e4562fbde26413942d282c99b896c0dda29d76824fb5ac40f65f3b4c7c2edb0933bc2bb3bf201a3a640b28d67465e5437a16795cd331c8f920b77163646226cfceab6f966cfcb70aa648703da52066d5314bf345e7845567cb6decf235916f79c025a7ecc9da3535238f41fe1d5a2d8a53907df8a133f4193b7c49a001f9db31cca303f12987310c3143da78964c2f2922146cfa9874d89850b2e2f2c5a6f87367a6ad7e781154677f50542fb42f3854e13729fb9b37762c4e086fb4ff6db2a3d911968ff021995d43d957d1c690e60cf5248b70db8e19a49d700bf18df30cc0ea88a3b1b748bb21796a786fae466948b726c1316215561ff4d4917e19609abe07e6521dac8a63534f85115287e8ab756b4fafca7b89f8c3a251654b04c36dab917efa9e7af6d3923a42fcc59dad4340368ed95134e042d21809506e5b1eb3d4f254a0c7b597d6f1d9f49bb2785db16ec5738422e2d16da0d8edebce81c02bec9e7e500dcde51e609f47bb13cc12fe9d74d67348dc07cc6a7b9dd7a6f023ca72cb3ed95ef539dbd163bb561115f88ad827331459aafea47dbcf56521ef0d7206fd8b75ed97944808800d14e8fced7649ab60b7f19ff4fb584be1d28d7f1d8a3697b4eab6150b8cefb45e60491423c5d8e72ee5039418e155b5684c4ba3d8c2a02280156e11ef0a550d875efddfb32c4f65b704b8313273dd689cd8119e0f74c7565f16cc1324b36496c0cea6d85acf21d236807e28c87002fcf13f68f8c8c107e238bb22b2f943fd5ad225224f5a99867c25ef30c4c41b22c677756ec10e686d9a38e91968b1a5f457d53a73a44c59c1e2077f3fc6c09212d2a26c5ee64d8861cb64a16a09f78b87d6d7cd33163cbbbe2c7b1298cc0e3eb1a1d48a3cbf7e0e3a8938839cf78ae2ebf4e933fd467362274487c491e3a5e239e15e29ea67fb63f7ff97efafb2ff9302f895f1f461020597973af145ae660a82cd513fb813399b20f064e29f567e420b403f26b294f131e6ad057ec387cdb15ff73a4365e7d118c7865a218f2846e9df796497b0c56a9c16cefb1dadcde41e747b0d5bfa2dce637eff75a21a7955214372f285527a63c16f43d24bc813ed028717b59aea2b89a92e8da3098edf9ece8f0bcd6785469f810938de02a7c767e7b5d69075b0771f42a0364b51514da0dd8d283d9ff7da1d93cd09013c1fc83ca87352efe2ed8238d77487cf4249fa22dff2dd19798e997cf8c1df37aa70135da920f118ab9fd78d6179061d9c695e74391c9b533c1e625694c0368cac7f7bc15d81fab55de589bf6aa382e36015d12718d174b68bd5b83b19abe0131985b47a0a2522d149d67f46a25a9b9e93e4e56d791214710abe0e6def5659710d7a2be0640d1dbeecfab16abee6a90226381ce32e068424f75f692c92ced36e7a963f5616fe4ccdb495b1bfcb4d52bf89f492ade5d1e86b913d39227fcefbd2a62cb85b0aed029c93a1ece9148b04aaddcc2796fc733dfe6ac12ca3902670a9b34565be734ba531ecce85b2cdc3dde9cdecdad7b9de9b285a7f3a7744d63f8ef5cf0c141d724f3d6d2884cadab0b72480cf3127e286b64d56dccfc2e85bd962816b0ab13a7de640557638cb133be97f994d476ce718693583e70ff427b3025bc84c00e049ecd4caf346209664e3abe1935dccb044d80401c6bcac6919d9d0764fea9ee5d8e8c5721c4318a8faf0bc65e1e41439dd74540c8a6811bbf7f358faa6d693c525374e583cef98bb375612b85ec14270c7df7d612201e0484d3f54deee57b9b5f957768277eb46c7eec96d258b4252e0410d0581930b0fb3a498d79</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <title>java基础</title>
+    <url>/2020/04/19/aaa/</url>
+    <content><![CDATA[<h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><ul>
+<li><p>面向过程</p>
+<ul>
+<li>面向过程的性能更高。因为面向对象类的调用需要实例化，比较消耗资源，</li>
+</ul>
+</li>
+<li><p>面向对象</p>
+<ul>
+<li>更易维护，易扩展，易复用。面向对象有，封装，继承，多态的特性，可以设计出低耦合的系统，是系统更加灵活，更加易于维护。<a id="more"></a>
+<h3 id="java和c-的区别"><a href="#java和c-的区别" class="headerlink" title="java和c++的区别"></a>java和c++的区别</h3></li>
+</ul>
+</li>
+<li><p>都是面向对象的编程语言，都有封装、继承、多态特性</p>
+</li>
+<li><p>java不提供指针来直接访问内存，程序内存更安全</p>
+</li>
+<li><p>java类是单继承的，c++是多继承的，但是java的接口是多继承的</p>
+</li>
+<li><p>java有自动的内存管理机制，不需要程序员手动的释放无用内存</p>
+</li>
+</ul>
+<h3 id="java面向对象的三大特性：封装、继承、多态"><a href="#java面向对象的三大特性：封装、继承、多态" class="headerlink" title="java面向对象的三大特性：封装、继承、多态"></a>java面向对象的三大特性：封装、继承、多态</h3><ul>
+<li>封装</li>
+<li>继承<ul>
+<li>子类继承父类拥有父类的私有方法和属性，但是只是拥有，却无法访问</li>
+</ul>
+</li>
+<li>多态<ul>
+<li>在java中只有两种形式能实现多态<ul>
+<li>继承：多个子类对同一个父类方法进行重写</li>
+<li>接口：实现接口并覆盖接口中的同一方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="StringBuffer-and-stringbuilder-的区别是什么？string为什么是不可变的"><a href="#StringBuffer-and-stringbuilder-的区别是什么？string为什么是不可变的" class="headerlink" title="StringBuffer and stringbuilder 的区别是什么？string为什么是不可变的"></a>StringBuffer and stringbuilder 的区别是什么？string为什么是不可变的</h3><ul>
+<li>因为string对象中使用final关键字 修饰 字符数组 来保存字符串</li>
+<li>StringBuffer <ul>
+<li>线程安全</li>
+</ul>
+</li>
+<li>stringbuilder <ul>
+<li>线程不安全</li>
+<li>性能比buffer高10%-15%</li>
+</ul>
+</li>
+</ul>
+<h3 id="在java中定义一个不做事且没有参数的构造方法的作用"><a href="#在java中定义一个不做事且没有参数的构造方法的作用" class="headerlink" title="在java中定义一个不做事且没有参数的构造方法的作用"></a>在java中定义一个不做事且没有参数的构造方法的作用</h3><ul>
+<li>子类没有通过super调用父类构造器，就会调用父类无参构造器，若没有报错</li>
+</ul>
+<h3 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a>接口和抽象类的区别</h3><ul>
+<li>从设计层面来说，抽象是对类的抽象，是一种模板设计，接口是对行为的抽象，是一种行为的规范。</li>
+<li>一个类可以实现多个接口，但是只能实现一个抽象类</li>
+<li>接口方法默认修饰符是public，但是抽象类可以有public、protected 和 default，因为抽象类的方法就是用来被重写的所以不能用private。</li>
+<li>接口中在jdk1.8之前不能有方法的实现，而抽象类可以有非抽象方法   </li>
+</ul>
+<h3 id="成员变量和局部变量的区别"><a href="#成员变量和局部变量的区别" class="headerlink" title="成员变量和局部变量的区别"></a>成员变量和局部变量的区别</h3><ul>
+<li>从语法形式上看<ul>
+<li>成员变量是属于类的<ul>
+<li>可以被修饰符修饰</li>
+</ul>
+</li>
+<li>局部变量是在方法中定义的变量或是方法的参数<ul>
+<li>不可以被访问控制修饰符及static修饰</li>
+</ul>
+</li>
+<li>都可以被final修饰</li>
+</ul>
+</li>
+<li>从在内存中的存储方式上看<ul>
+<li>对象存在堆内存<ul>
+<li>如果成员变量是使用static修饰的那么是属于类的</li>
+<li>否则是属于实例的</li>
+</ul>
+</li>
+<li>局部变量存在栈内存</li>
+</ul>
+</li>
+<li>从在内存中的生存时间上看<ul>
+<li>成员变量是对象中的一部分，他随着对象的创建而存在</li>
+<li>而局部变量随着方法的调用而消失。</li>
+</ul>
+</li>
+<li>如果没有被赋予初始值<ul>
+<li>成员变量会自动被赋予类型的默认值<ul>
+<li>被final修饰的成员变量需要显式赋值</li>
+</ul>
+</li>
+<li>局部变量不会</li>
+</ul>
+</li>
+</ul>
+<h3 id="对象实体与对象有什么区别"><a href="#对象实体与对象有什么区别" class="headerlink" title="对象实体与对象有什么区别"></a>对象实体与对象有什么区别</h3><ul>
+<li>通过new运算符创建对象</li>
+<li>对象实例存放在堆中<ul>
+<li>对象实例可以被多个引用所指</li>
+</ul>
+</li>
+<li>对象引用存放在栈中<ul>
+<li>对象引用指向对象实例</li>
+<li>对象引用只能指向一个或0个实例</li>
+</ul>
+</li>
+</ul>
+<h3 id="静态方法和实例方法有什么不同"><a href="#静态方法和实例方法有什么不同" class="headerlink" title="静态方法和实例方法有什么不同"></a>静态方法和实例方法有什么不同</h3><ul>
+<li>静态方法可以不通过实例化就可以调用</li>
+<li>静态方法在访问本类成员时只能访问静态成员（静态方法，静态成员变量）</li>
+</ul>
+<h3 id="对象的相等与指向他们的引用的相等有什么不同"><a href="#对象的相等与指向他们的引用的相等有什么不同" class="headerlink" title="对象的相等与指向他们的引用的相等有什么不同"></a>对象的相等与指向他们的引用的相等有什么不同</h3><ul>
+<li>对象的相等是，内存中存放的内容是否相等</li>
+<li>指向他们的引用的相等是，他们是否指向同一个内存地址</li>
+</ul>
+<h3 id="在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法-其⽬的是"><a href="#在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法-其⽬的是" class="headerlink" title="在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法,其⽬的是?"></a>在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法,其⽬的是?</h3><ul>
+<li>帮助子类做初始化工作</li>
+</ul>
+]]></content>
+      <categories>
+        <category>后端</category>
+        <category>java</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>java面试点</tag>
+      </tags>
   </entry>
   <entry>
-    <title>aaa</title>
-    <url>/2020/04/17/aaa/</url>
-    <content><![CDATA[<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
+    <title>Love</title>
+    <url>/2020/04/19/s/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="00acf256cee0fb7f1c87d90e8680f8a8a1d073df689d2c16f18794865183717d">bdeda12f88ab709b4f26c88d4b192778</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>Love</tag>
+      </tags>
   </entry>
 </search>
