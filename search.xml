@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>js基础</title>
-    <url>/2020/05/12/js%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h2 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign"></a>Object.assign</h2><p>​    是浅拷贝还是深拷贝?</p>
-<p>​        首先，我们要说的是Object.assign的基本用法：</p>
-<p>​        Object.assign(目标,数据1,数据2….);<u></u></p>
-<a id="more"></a>
-
-<p>​    示例：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//示例1</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">let</span> newObj = <span class="built_in">Object</span>.assign(&#123;&#125;,obj);</span><br><span class="line"><span class="built_in">console</span>.log(newObj) <span class="comment">//&#123;a: 1&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//示例2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;<span class="attr">name</span>:<span class="string">"zhangsan"</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">age</span>:<span class="number">18</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj3 = <span class="built_in">Object</span>.assign(&#123;&#125;,obj1,obj2);</span><br><span class="line"><span class="built_in">console</span>.log(obj3) <span class="comment">//&#123;name: "zhangsan", age: 18&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>​    关于Object.assign是浅拷贝还是深拷贝的问题：     </p>
-<p>​        <em>答：第一级属性深拷贝，从第二级属性开始就是浅拷贝。</em></p>
-<p>​    示例：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//示例1  一层深拷贝</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">let</span> newObj = <span class="built_in">Object</span>.assign(&#123;&#125;,obj);</span><br><span class="line"><span class="built_in">console</span>.log(newObj); <span class="comment">//&#123;a: 1&#125;</span></span><br><span class="line">newObj.a=<span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//&#123;a:1&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj); <span class="comment">//&#123;a: 2&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//示例2  二层浅拷贝</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:&#123;<span class="attr">name</span>:<span class="string">"zhangsan"</span>&#125;&#125;</span><br><span class="line"><span class="keyword">let</span> newObj = <span class="built_in">Object</span>.assign(&#123;&#125;,obj);</span><br><span class="line"><span class="built_in">console</span>.log(newObj); <span class="comment">//&#123;a:1,b:&#123;name:"zhangsan"&#125;&#125;</span></span><br><span class="line">newObj.b.name=<span class="string">"lisi"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//&#123;a:1,b:&#123;name:"lisi"&#125;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj); <span class="comment">//&#123;a:1,b:&#123;name:"lisi"&#125;&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>前端</category>
-        <category>js</category>
-        <category>基础</category>
-        <category>KOUKOU</category>
-      </categories>
-      <tags>
-        <tag>KOUKOU专属</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java基础</title>
     <url>/2020/04/19/aaa/</url>
     <content><![CDATA[<h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><ul>
@@ -156,6 +131,31 @@
       </tags>
   </entry>
   <entry>
+    <title>js基础</title>
+    <url>/2020/05/12/js%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h2 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign"></a>Object.assign</h2><p>​    是浅拷贝还是深拷贝?</p>
+<p>​        首先，我们要说的是Object.assign的基本用法：</p>
+<p>​        Object.assign(目标,数据1,数据2….);<u></u></p>
+<a id="more"></a>
+
+<p>​    示例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//示例1</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">let</span> newObj = <span class="built_in">Object</span>.assign(&#123;&#125;,obj);</span><br><span class="line"><span class="built_in">console</span>.log(newObj) <span class="comment">//&#123;a: 1&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//示例2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;<span class="attr">name</span>:<span class="string">"zhangsan"</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">age</span>:<span class="number">18</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj3 = <span class="built_in">Object</span>.assign(&#123;&#125;,obj1,obj2);</span><br><span class="line"><span class="built_in">console</span>.log(obj3) <span class="comment">//&#123;name: "zhangsan", age: 18&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    关于Object.assign是浅拷贝还是深拷贝的问题：     </p>
+<p>​        <em>答：第一级属性深拷贝，从第二级属性开始就是浅拷贝。</em></p>
+<p>​    示例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//示例1  一层深拷贝</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">let</span> newObj = <span class="built_in">Object</span>.assign(&#123;&#125;,obj);</span><br><span class="line"><span class="built_in">console</span>.log(newObj); <span class="comment">//&#123;a: 1&#125;</span></span><br><span class="line">newObj.a=<span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//&#123;a:1&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj); <span class="comment">//&#123;a: 2&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//示例2  二层浅拷贝</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:&#123;<span class="attr">name</span>:<span class="string">"zhangsan"</span>&#125;&#125;</span><br><span class="line"><span class="keyword">let</span> newObj = <span class="built_in">Object</span>.assign(&#123;&#125;,obj);</span><br><span class="line"><span class="built_in">console</span>.log(newObj); <span class="comment">//&#123;a:1,b:&#123;name:"zhangsan"&#125;&#125;</span></span><br><span class="line">newObj.b.name=<span class="string">"lisi"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//&#123;a:1,b:&#123;name:"lisi"&#125;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj); <span class="comment">//&#123;a:1,b:&#123;name:"lisi"&#125;&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>前端</category>
+        <category>js</category>
+        <category>基础</category>
+        <category>KOUKOU</category>
+      </categories>
+      <tags>
+        <tag>KOUKOU专属</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Love</title>
     <url>/2020/04/19/s/</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="00acf256cee0fb7f1c87d90e8680f8a8a1d073df689d2c16f18794865183717d">bdeda12f88ab709b4f26c88d4b192778</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
@@ -182,6 +182,135 @@
       </categories>
       <tags>
         <tag>IT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机组成原理之概述篇</title>
+    <url>/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/</url>
+    <content><![CDATA[<h2 id="计算机组成原理之概述篇"><a href="#计算机组成原理之概述篇" class="headerlink" title="计算机组成原理之概述篇"></a>计算机组成原理之概述篇</h2><h3 id="计算机的发展简史"><a href="#计算机的发展简史" class="headerlink" title="计算机的发展简史"></a>计算机的发展简史</h3><ul>
+<li>四个阶段<ol>
+<li>电子管</li>
+<li>晶体管</li>
+<li>集成电路（IC）<ul>
+<li>在该阶段产生了操作系统</li>
+</ul>
+</li>
+<li>超大规模集成电路<a id="more"></a>
+<h3 id="计算机的分类"><a href="#计算机的分类" class="headerlink" title="计算机的分类"></a>计算机的分类</h3></li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>超级计算机</li>
+<li>大型计算机</li>
+<li>迷你计算机（服务器）</li>
+<li>工作站（做视频，画图 – 超高性能）</li>
+<li>微型计算机（个人计算机）</li>
+</ol>
+<h3 id="计算机的体系结构"><a href="#计算机的体系结构" class="headerlink" title="计算机的体系结构"></a>计算机的体系结构</h3><h4 id="冯诺依曼体系"><a href="#冯诺依曼体系" class="headerlink" title="冯诺依曼体系"></a>冯诺依曼体系</h4><ul>
+<li>思想：存储程序指令，设计通用电路</li>
+</ul>
+<img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/1.jpg" class title="计算机的体系与结构">
+
+<h5 id="冯诺依曼瓶颈"><a href="#冯诺依曼瓶颈" class="headerlink" title="冯诺依曼瓶颈"></a>冯诺依曼瓶颈</h5><ul>
+<li>问题：存储器的速率跟不上CPU的运行效率</li>
+<li>表现：CPU经常空转，等到存储器的数据传输<ul>
+<li>CPU空转：CPU通电后就会一直运转，一直执行指令，若无指令就原地旋转。<ul>
+<li>多核CPU：至少有一个CPU不会停止</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="现代计算机结构"><a href="#现代计算机结构" class="headerlink" title="现代计算机结构"></a>现代计算机结构</h4><ul>
+<li>解决了冯诺依曼瓶颈</li>
+</ul>
+<img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/2.jpg" class>
+
+<h3 id="计算机层次与编程语言"><a href="#计算机层次与编程语言" class="headerlink" title="计算机层次与编程语言"></a>计算机层次与编程语言</h3><h4 id="程序编译与程序解释"><a href="#程序编译与程序解释" class="headerlink" title="程序编译与程序解释"></a>程序编译与程序解释</h4><h5 id="程序编译"><a href="#程序编译" class="headerlink" title="程序编译"></a>程序编译</h5><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/3.jpg" class>
+
+<h5 id="程序解释"><a href="#程序解释" class="headerlink" title="程序解释"></a>程序解释</h5><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/4.jpg" class>
+
+<h5 id="程序编译与程序解释的区别"><a href="#程序编译与程序解释的区别" class="headerlink" title="程序编译与程序解释的区别"></a>程序编译与程序解释的区别</h5><ul>
+<li><p>编译的时候编译器会把源文件处理一遍，生成一个目标文件，而解释就是边处理源文件边执行。</p>
+</li>
+<li><p>编译相当于做好一桌子菜再开吃，解释就是吃火锅，得一边煮一边吃，所以解释执行效率会低一些。</p>
+</li>
+</ul>
+<h4 id="计算机得层次"><a href="#计算机得层次" class="headerlink" title="计算机得层次"></a>计算机得层次</h4><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/6.jpg" class>
+
+<ul>
+<li>硬件逻辑层<ul>
+<li>属于电子工程邻域</li>
+</ul>
+</li>
+<li>微程序逻辑层<ul>
+<li>编程语言：微指令集</li>
+<li>微指令所组成得微程序直接交由硬件执行</li>
+</ul>
+</li>
+<li>传统机器层<ul>
+<li>编程语言：CPU指令（机器指令）</li>
+<li>不同架构得CPU使用不同得CPU指令集</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>一条 机器指令 对应 一个 微程序<br>一个 微程序 对应 一组 微指令</p>
+</blockquote>
+<ul>
+<li>操作系统层</li>
+<li>汇编语言层</li>
+</ul>
+<h3 id="计算机单位"><a href="#计算机单位" class="headerlink" title="计算机单位"></a>计算机单位</h3><h4 id="容量单位"><a href="#容量单位" class="headerlink" title="容量单位"></a>容量单位</h4><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/5.png" class>
+
+<ul>
+<li>在物理层面，记录高低电平的信息</li>
+<li>理论上只认识0/1两种状态</li>
+<li>0/1称为bit</li>
+</ul>
+<blockquote>
+<p>为什么网上买的500GB移动硬盘，格式化后只有465GB</p>
+<ul>
+<li>因为硬盘商一般用10进制标记容量</li>
+<li>500 * 1000的3次方 / 1024的3次方 = 465</li>
+</ul>
+</blockquote>
+<h4 id="速度单位"><a href="#速度单位" class="headerlink" title="速度单位"></a>速度单位</h4><h5 id="网络速度"><a href="#网络速度" class="headerlink" title="网络速度"></a>网络速度</h5><ul>
+<li>网络速度单位为 M比特每秒</li>
+<li>容量单位为M字节</li>
+</ul>
+<blockquote>
+<p>为什么电信拉的100M光纤，测试峰值速度只有12M每秒？</p>
+<ul>
+<li>网络常用单位为Mbps</li>
+<li>100M/s=100Mbps=100Mbit/s=（100/8）MB/s=12.5MB/s</li>
+</ul>
+</blockquote>
+<h5 id="CPU速度"><a href="#CPU速度" class="headerlink" title="CPU速度"></a>CPU速度</h5><ul>
+<li>单位HZ</li>
+<li>CPU赫兹描述的是<ul>
+<li>高低电平每秒变化的次数</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算机的字符编码集"><a href="#计算机的字符编码集" class="headerlink" title="计算机的字符编码集"></a>计算机的字符编码集</h3><ul>
+<li>国际 ASCII</li>
+<li>中国<ul>
+<li>GB2312 -&gt;  GBK  -&gt; unicode </li>
+</ul>
+</li>
+<li>unicode可表达世界上所有的语言</li>
+<li>Windows默认使用GBK编码格式</li>
+</ul>
+]]></content>
+      <categories>
+        <category>GUGU</category>
+        <category>KOUKOU</category>
+        <category>计算机组成原理</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
       </tags>
   </entry>
 </search>
