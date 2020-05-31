@@ -9,136 +9,6 @@
       </tags>
   </entry>
   <entry>
-    <title>java基础</title>
-    <url>/2020/04/19/aaa/</url>
-    <content><![CDATA[<h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><ul>
-<li><p>面向过程</p>
-<ul>
-<li>面向过程的性能更高。因为面向对象类的调用需要实例化，比较消耗资源，</li>
-</ul>
-</li>
-<li><p>面向对象</p>
-<ul>
-<li>更易维护，易扩展，易复用。面向对象有，封装，继承，多态的特性，可以设计出低耦合的系统，是系统更加灵活，更加易于维护。<a id="more"></a>
-<h3 id="java和c-的区别"><a href="#java和c-的区别" class="headerlink" title="java和c++的区别"></a>java和c++的区别</h3></li>
-</ul>
-</li>
-<li><p>都是面向对象的编程语言，都有封装、继承、多态特性</p>
-</li>
-<li><p>java不提供指针来直接访问内存，程序内存更安全</p>
-</li>
-<li><p>java类是单继承的，c++是多继承的，但是java的接口是多继承的</p>
-</li>
-<li><p>java有自动的内存管理机制，不需要程序员手动的释放无用内存</p>
-</li>
-</ul>
-<h3 id="java面向对象的三大特性：封装、继承、多态"><a href="#java面向对象的三大特性：封装、继承、多态" class="headerlink" title="java面向对象的三大特性：封装、继承、多态"></a>java面向对象的三大特性：封装、继承、多态</h3><ul>
-<li>封装</li>
-<li>继承<ul>
-<li>子类继承父类拥有父类的私有方法和属性，但是只是拥有，却无法访问</li>
-</ul>
-</li>
-<li>多态<ul>
-<li>在java中只有两种形式能实现多态<ul>
-<li>继承：多个子类对同一个父类方法进行重写</li>
-<li>接口：实现接口并覆盖接口中的同一方法</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="StringBuffer-and-stringbuilder-的区别是什么？string为什么是不可变的"><a href="#StringBuffer-and-stringbuilder-的区别是什么？string为什么是不可变的" class="headerlink" title="StringBuffer and stringbuilder 的区别是什么？string为什么是不可变的"></a>StringBuffer and stringbuilder 的区别是什么？string为什么是不可变的</h3><ul>
-<li>因为string对象中使用final关键字 修饰 字符数组 来保存字符串</li>
-<li>StringBuffer <ul>
-<li>线程安全</li>
-</ul>
-</li>
-<li>stringbuilder <ul>
-<li>线程不安全</li>
-<li>性能比buffer高10%-15%</li>
-</ul>
-</li>
-</ul>
-<h3 id="在java中定义一个不做事且没有参数的构造方法的作用"><a href="#在java中定义一个不做事且没有参数的构造方法的作用" class="headerlink" title="在java中定义一个不做事且没有参数的构造方法的作用"></a>在java中定义一个不做事且没有参数的构造方法的作用</h3><ul>
-<li>子类没有通过super调用父类构造器，就会调用父类无参构造器，若没有报错</li>
-</ul>
-<h3 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a>接口和抽象类的区别</h3><ul>
-<li>从设计层面来说，抽象是对类的抽象，是一种模板设计，接口是对行为的抽象，是一种行为的规范。</li>
-<li>一个类可以实现多个接口，但是只能实现一个抽象类</li>
-<li>接口方法默认修饰符是public，但是抽象类可以有public、protected 和 default，因为抽象类的方法就是用来被重写的所以不能用private。</li>
-<li>接口中在jdk1.8之前不能有方法的实现，而抽象类可以有非抽象方法   </li>
-</ul>
-<h3 id="成员变量和局部变量的区别"><a href="#成员变量和局部变量的区别" class="headerlink" title="成员变量和局部变量的区别"></a>成员变量和局部变量的区别</h3><ul>
-<li>从语法形式上看<ul>
-<li>成员变量是属于类的<ul>
-<li>可以被修饰符修饰</li>
-</ul>
-</li>
-<li>局部变量是在方法中定义的变量或是方法的参数<ul>
-<li>不可以被访问控制修饰符及static修饰</li>
-</ul>
-</li>
-<li>都可以被final修饰</li>
-</ul>
-</li>
-<li>从在内存中的存储方式上看<ul>
-<li>对象存在堆内存<ul>
-<li>如果成员变量是使用static修饰的那么是属于类的</li>
-<li>否则是属于实例的</li>
-</ul>
-</li>
-<li>局部变量存在栈内存</li>
-</ul>
-</li>
-<li>从在内存中的生存时间上看<ul>
-<li>成员变量是对象中的一部分，他随着对象的创建而存在</li>
-<li>而局部变量随着方法的调用而消失。</li>
-</ul>
-</li>
-<li>如果没有被赋予初始值<ul>
-<li>成员变量会自动被赋予类型的默认值<ul>
-<li>被final修饰的成员变量需要显式赋值</li>
-</ul>
-</li>
-<li>局部变量不会</li>
-</ul>
-</li>
-</ul>
-<h3 id="对象实体与对象有什么区别"><a href="#对象实体与对象有什么区别" class="headerlink" title="对象实体与对象有什么区别"></a>对象实体与对象有什么区别</h3><ul>
-<li>通过new运算符创建对象</li>
-<li>对象实例存放在堆中<ul>
-<li>对象实例可以被多个引用所指</li>
-</ul>
-</li>
-<li>对象引用存放在栈中<ul>
-<li>对象引用指向对象实例</li>
-<li>对象引用只能指向一个或0个实例</li>
-</ul>
-</li>
-</ul>
-<h3 id="静态方法和实例方法有什么不同"><a href="#静态方法和实例方法有什么不同" class="headerlink" title="静态方法和实例方法有什么不同"></a>静态方法和实例方法有什么不同</h3><ul>
-<li>静态方法可以不通过实例化就可以调用</li>
-<li>静态方法在访问本类成员时只能访问静态成员（静态方法，静态成员变量）</li>
-</ul>
-<h3 id="对象的相等与指向他们的引用的相等有什么不同"><a href="#对象的相等与指向他们的引用的相等有什么不同" class="headerlink" title="对象的相等与指向他们的引用的相等有什么不同"></a>对象的相等与指向他们的引用的相等有什么不同</h3><ul>
-<li>对象的相等是，内存中存放的内容是否相等</li>
-<li>指向他们的引用的相等是，他们是否指向同一个内存地址</li>
-</ul>
-<h3 id="在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法-其⽬的是"><a href="#在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法-其⽬的是" class="headerlink" title="在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法,其⽬的是?"></a>在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法,其⽬的是?</h3><ul>
-<li>帮助子类做初始化工作</li>
-</ul>
-]]></content>
-      <categories>
-        <category>后端</category>
-        <category>GUGU</category>
-        <category>java</category>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>java基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算机组成原理之概述篇</title>
     <url>/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/</url>
     <content><![CDATA[<h2 id="计算机组成原理之概述篇"><a href="#计算机组成原理之概述篇" class="headerlink" title="计算机组成原理之概述篇"></a>计算机组成原理之概述篇</h2><h3 id="计算机的发展简史"><a href="#计算机的发展简史" class="headerlink" title="计算机的发展简史"></a>计算机的发展简史</h3><ul>
@@ -490,6 +360,493 @@
       </categories>
       <tags>
         <tag>KOUKOU专属</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络之网络层篇</title>
+    <url>/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/</url>
+    <content><![CDATA[<h3 id="网络层协议"><a href="#网络层协议" class="headerlink" title="网络层协议"></a><strong>网络层协议</strong></h3><h4 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h4><blockquote>
+<ul>
+<li>IP协议使得复杂的实际网络变成为一个虚拟互连的网络</li>
+<li>IP协议使得网络层可以屏蔽底层细节而专注网络层的数据转发</li>
+<li>IP协议解决了在虚拟网络中数据包传输路径的问题</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h5 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h5><ul>
+<li>IP地址是可变的，网卡上的MAC地址是唯一的</li>
+<li>IP地址长度为32为，常分为4个8位</li>
+<li>IP地址常使用点分十进制来表示（0<del>255.0</del>255.0<del>255.0</del>255）</li>
+</ul>
+<h5 id="IP数据报"><a href="#IP数据报" class="headerlink" title="IP数据报"></a>IP数据报</h5><img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/IP%E6%95%B0%E6%8D%AE%E6%8A%A5.png" class>
+
+<ul>
+<li><p>IP数据报可以携带不同协议的数据</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%8D%8F%E8%AE%AE.png" class>
+
+</li>
+</ul>
+<h5 id="IP协议的转发流程"><a href="#IP协议的转发流程" class="headerlink" title="IP协议的转发流程"></a>IP协议的转发流程</h5><blockquote>
+<ul>
+<li><p>逐跳</p>
+</li>
+<li><p>路由表</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%B7%AF%E7%94%B1%E8%A1%A8.png" class>
+
+<ul>
+<li>计算机或者路由器都拥有路由表</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B2.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B3.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B4.png" class>
+
+<ul>
+<li>特点<ul>
+<li>数据帧每一跳的MAC地址都在变化</li>
+<li>IP数据报每一跳的IP地址始终不变</li>
+</ul>
+</li>
+</ul>
+<h4 id="ARP协议和RARP协议"><a href="#ARP协议和RARP协议" class="headerlink" title="ARP协议和RARP协议"></a>ARP协议和RARP协议</h4><h5 id="ARP地址解析协议"><a href="#ARP地址解析协议" class="headerlink" title="ARP地址解析协议"></a>ARP地址解析协议</h5><ul>
+<li><p>网络层IP32位地址——&gt;数据链路层MAC48位地址</p>
+</li>
+<li><p>ARP缓存表</p>
+<ul>
+<li>是ARP协议和RARP协议运行的关键</li>
+<li>缓存了IP地址到硬件地址之间的映射关系</li>
+<li>记录的数据并不是永久有效的，有一定的期限</li>
+</ul>
+</li>
+<li><p>ARP协议的解析过程</p>
+<ul>
+<li><p>ARP缓存表有缓存记录则直接转换</p>
+</li>
+<li><p>ARP缓存表没有缓存记录则像MAC地址表一样广播</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/ARP%E7%BC%93%E5%AD%98%E8%A1%A8%E6%97%A0%E8%AE%B0%E5%BD%95.png" class>
+
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="RARP地址逆解析协议"><a href="#RARP地址逆解析协议" class="headerlink" title="RARP地址逆解析协议"></a>RARP地址逆解析协议</h5><ul>
+<li>数据链路层MAC48位地址——&gt;网络层IP32位地址</li>
+</ul>
+<h4 id="NAT协议（网络地址转换协议）"><a href="#NAT协议（网络地址转换协议）" class="headerlink" title="NAT协议（网络地址转换协议）"></a>NAT协议（网络地址转换协议）</h4><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><ul>
+<li><p>NAT技术用于多个主机通过一个公有IP访问互联网的私有网络中</p>
+</li>
+<li><p>NAT减缓了IP地址的消耗，但是增加了网络通信的复杂度</p>
+</li>
+<li><p>因IP地址不足而产生的协议——NAT网络协议</p>
+</li>
+<li><p>内网地址</p>
+<ul>
+<li>内部机构使用</li>
+<li>避免与外网地址重复</li>
+<li>三类<ul>
+<li>10.0.0.0~10.255.255.255（支持千万数量级设备）</li>
+<li>172.16.0.0~172.31.255.255（支持百万数量级设备）</li>
+<li>192.168.0.0~192.168.255.255（支持万数量级设备）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>外网地址</p>
+<ul>
+<li>全球范围使用</li>
+<li>全球公网唯一</li>
+</ul>
+</li>
+<li><p>NAT转换的过程</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/NAT%E8%BD%AC%E6%8D%A2%E7%9A%84%E8%BF%87%E7%A8%8B.png" class>）
+
+</li>
+</ul>
+<h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a><strong>分类</strong></h5><ol>
+<li>静态NAT</li>
+<li>动态NAT</li>
+<li>PAT(Port Address Translation)<ul>
+<li>映射多个私有网IP地址到一个公网IP地址，通过使用不同的端口来区分内网主机</li>
+</ul>
+</li>
+</ol>
+<h5 id="NAT与端口映射的区别"><a href="#NAT与端口映射的区别" class="headerlink" title="NAT与端口映射的区别"></a><strong>NAT与端口映射的区别</strong></h5><p>端口映射和端口地址转换PAT是两个概念！PAT是使得多个内网主机可以通过一个公网IP同时访问Internet，而端口映射则可以让internet主机访问内网主机！</p>
+<h4 id="ICMP协议（网际控制报文协议）"><a href="#ICMP协议（网际控制报文协议）" class="headerlink" title="ICMP协议（网际控制报文协议）"></a>ICMP协议（网际控制报文协议）</h4><ul>
+<li><p>辅助IP协议用于数据传输</p>
+</li>
+<li><p>报告错误信息或异常情况</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/ICMP.png" class>
+
+</li>
+</ul>
+<h5 id="ICMP种类"><a href="#ICMP种类" class="headerlink" title="ICMP种类"></a>ICMP种类</h5><ul>
+<li><p>差错报告报文</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E5%B7%AE%E9%94%99%E6%8A%A5%E6%96%87.png" class>
+</li>
+<li><p>询问报文</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%AF%A2%E9%97%AE%E6%8A%A5%E6%96%87.png" class>
+
+</li>
+</ul>
+<h5 id="ICMP协议的应用"><a href="#ICMP协议的应用" class="headerlink" title="ICMP协议的应用"></a>ICMP协议的应用</h5><h6 id="Ping应用"><a href="#Ping应用" class="headerlink" title="Ping应用"></a>Ping应用</h6><img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/PING.png" class>）
+
+<ul>
+<li><p>ping回环地址127.0.0.1</p>
+<ul>
+<li>对本地网络协议的检查</li>
+</ul>
+</li>
+<li><p>ping网关地址</p>
+<ul>
+<li>检查计算机到网关的线路有无问题</li>
+</ul>
+</li>
+<li><p>ping远端地址</p>
+<ul>
+<li>检查路由器到ISP（运营商）的线路有无问题</li>
+</ul>
+</li>
+</ul>
+<h6 id="Traceroute应用"><a href="#Traceroute应用" class="headerlink" title="Traceroute应用"></a>Traceroute应用</h6><ul>
+<li>可以探测IP数据在网络中走过的路径</li>
+<li>运用TTL的特点，当TTL=0时，网络设备必须丢弃该报文<ul>
+<li>应用了ICMP终点不可达差错报文</li>
+</ul>
+</li>
+</ul>
+<h3 id="动态路由算法"><a href="#动态路由算法" class="headerlink" title="动态路由算法"></a>动态路由算法</h3><h4 id="自治系统AS"><a href="#自治系统AS" class="headerlink" title="自治系统AS"></a>自治系统AS</h4><ul>
+<li>处于一个管理机构下的网络设备群</li>
+<li>AS内部网络自行管理，AS对外提供一个或者多个出（入）口</li>
+</ul>
+<h4 id="内部网关路由协议（RIP、OSPF）"><a href="#内部网关路由协议（RIP、OSPF）" class="headerlink" title="内部网关路由协议（RIP、OSPF）"></a>内部网关路由协议（RIP、OSPF）</h4><ul>
+<li>自治系统内部路由的协议</li>
+</ul>
+<h5 id="距离矢量路由协议"><a href="#距离矢量路由协议" class="headerlink" title="距离矢量路由协议"></a>距离矢量路由协议</h5><h6 id="距离矢量-DV-算法"><a href="#距离矢量-DV-算法" class="headerlink" title="距离矢量(DV)算法"></a>距离矢量(DV)算法</h6><ul>
+<li><p>算法过程</p>
+<ul>
+<li><p>每一个节点使用两个向量Di和Si</p>
+<ul>
+<li>Di描述的是当前节点到别的节点的距离</li>
+<li>Si描述的是当前节点到别的节点的下一个节点</li>
+</ul>
+</li>
+<li><p>每一个节点与相邻的节点交换向量Di和Si的信息</p>
+</li>
+<li><p>每一个节点根据交换的信息更新自己的节点信息</p>
+</li>
+<li><p>例子及图解</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV1.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV2.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV3.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV4.png" class>
+
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="RIP协议（应用DV算法）"><a href="#RIP协议（应用DV算法）" class="headerlink" title="RIP协议（应用DV算法）"></a>RIP协议（应用DV算法）</h6><ul>
+<li><p>RIP协议把网络的跳数作为DV算法的距离</p>
+</li>
+<li><p>RIP协议每隔30s交换一次路由信息</p>
+</li>
+<li><p>RIP协议认为跳数 &gt; 15的路由则为不可达路由</p>
+</li>
+<li><p>过程</p>
+<ul>
+<li><p>路由器初始化路由信息（两个向量Di和Si）</p>
+</li>
+<li><p>对相邻路由器X发过来的信息，对信息的内容进行修改（下一跳地址设置为X，所有距离加1）</p>
+<ul>
+<li><p>检索本地路由，将信息中新的路由插入到路由表里面</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E6%A3%80%E7%B4%A21.png" class>
+</li>
+<li><p>检索本地路由，对于吓一跳为X的，更新为修改后的信息</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E6%A3%80%E7%B4%A22.png" class>
+</li>
+<li><p>检索本地路由，对比相同目的的距离，如果新信息的距离更小，则更新本地路由表</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E6%A3%80%E7%B4%A23.png" class>
+</li>
+</ul>
+</li>
+<li><p>如果3分钟没有收到相邻的路由信息，则把相邻路由设置为不可达（16跳）</p>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E7%BC%BA%E7%82%B9.png" class>
+
+<ul>
+<li>实现简单，开销很小</li>
+<li>限制了网络的规模</li>
+<li>“坏消息传的慢”，更新收敛时间过长</li>
+</ul>
+</li>
+</ul>
+<h5 id="链路状态路由协议"><a href="#链路状态路由协议" class="headerlink" title="链路状态路由协议"></a>链路状态路由协议</h5><h6 id="链路状态（LS）协议"><a href="#链路状态（LS）协议" class="headerlink" title="链路状态（LS）协议"></a>链路状态（LS）协议</h6><ul>
+<li>向所有的路由器发送消息</li>
+<li>消息描述该路由器与相邻路由器的链路状态<ul>
+<li>链路状态包括：距离、时延、宽带等<ul>
+<li>由网络管理人员决定的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>只有链路状态发送变化时，才发送更新信息</li>
+</ul>
+<h6 id="OSPF协议（是链路状态路由协议的一种实现）"><a href="#OSPF协议（是链路状态路由协议的一种实现）" class="headerlink" title="OSPF协议（是链路状态路由协议的一种实现）"></a>OSPF协议（是链路状态路由协议的一种实现）</h6><ul>
+<li><p>OSPF：开放最短路径优先</p>
+</li>
+<li><p>OSPF协议的核心是Dijkstra算法</p>
+</li>
+<li><p>OSPF协议的过程</p>
+<ul>
+<li><p>向所有的路由器发送消息</p>
+<ul>
+<li>获得网络中的所有信息——&gt;“网络的完整拓扑”<ul>
+<li>也称为“链路状态数据库”，是全网一致的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>消息描述该路由器与相邻路由器的链路状态</p>
+<ul>
+<li>OSPF协议更加客观、更加先进</li>
+</ul>
+</li>
+<li><p>只有链路状态发送变化时，才发送更新信息</p>
+<ul>
+<li>减少了数据的交换，更快收敛</li>
+</ul>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/ospf%E8%BF%87%E7%A8%8B.png" class>
+</li>
+</ul>
+</li>
+<li><p>五种消息类型</p>
+<ul>
+<li>问候消息</li>
+<li>链路状态数据库描述信息</li>
+<li>链路状态请求信息</li>
+<li>链路状态更新信息</li>
+<li>链路状态确认信息</li>
+</ul>
+</li>
+</ul>
+<h6 id="Dijkstra（迪杰斯特拉）算法"><a href="#Dijkstra（迪杰斯特拉）算法" class="headerlink" title="Dijkstra（迪杰斯特拉）算法"></a>Dijkstra（迪杰斯特拉）算法</h6><ul>
+<li><p>解决有权图从一个节点到其他节点的最短路径问题</p>
+</li>
+<li><p>“以起始点为中心，向外层层扩展”</p>
+</li>
+<li><p>过程</p>
+<ul>
+<li><p>初始化两个集合（S,U）（S为只有初始顶点点A的集合，U为其他顶点的集合）</p>
+</li>
+<li><p>如果U不为空，对U集合顶点进行距离的排序，并取出距离A最近的一个顶点D</p>
+<ul>
+<li>将顶点D的纳入S集合</li>
+<li>更新通过顶点 D到达U集合所有点的距离（如果距离更小则更新，否则不更新）</li>
+<li>重复2步骤</li>
+</ul>
+</li>
+<li><p>直到U集合为空，算法完成</p>
+</li>
+<li><p>例子与图解</p>
+<ul>
+<li>求A到各个节点的最短距离</li>
+</ul>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ1.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ2.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ3.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ4.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ5.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ6.png" class>
+
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="RIP协议与OSPF协议对比"><a href="#RIP协议与OSPF协议对比" class="headerlink" title="RIP协议与OSPF协议对比"></a>RIP协议与OSPF协议对比</h6><img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP-OSPF%E5%AF%B9%E6%AF%94.png" class>
+
+<h4 id="外部网关路由协议（BGP）"><a href="#外部网关路由协议（BGP）" class="headerlink" title="外部网关路由协议（BGP）"></a>外部网关路由协议（BGP）</h4><ul>
+<li>自治系统内部路由的协议</li>
+</ul>
+<h5 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h5><ul>
+<li><p>使用原因</p>
+<ul>
+<li>互联网的规模很大</li>
+<li>AS内部使用不同的路由协议</li>
+<li>AS之间需要考虑除网络特性以外的一些因素（政治、安全）</li>
+</ul>
+</li>
+<li><p>边际网关协议</p>
+</li>
+<li><p>运行在AS之间的一种协议</p>
+</li>
+<li><p>能够找到一条到达目的比较好的路由</p>
+</li>
+<li><p>AS之间通过BGP发言人来进行路由信息的交换</p>
+<ul>
+<li><p>BGP发言人（speaker）</p>
+<ul>
+<li>BGP并不关心内部网络拓扑</li>
+<li>AS之间通过BGP发言人交流信息</li>
+<li>BGP Spearker可以人为配置策略</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>GUGU</category>
+        <category>KOUKOU</category>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java基础</title>
+    <url>/2020/04/19/aaa/</url>
+    <content><![CDATA[<h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><ul>
+<li><p>面向过程</p>
+<ul>
+<li>面向过程的性能更高。因为面向对象类的调用需要实例化，比较消耗资源，</li>
+</ul>
+</li>
+<li><p>面向对象</p>
+<ul>
+<li>更易维护，易扩展，易复用。面向对象有，封装，继承，多态的特性，可以设计出低耦合的系统，是系统更加灵活，更加易于维护。<a id="more"></a>
+<h3 id="java和c-的区别"><a href="#java和c-的区别" class="headerlink" title="java和c++的区别"></a>java和c++的区别</h3></li>
+</ul>
+</li>
+<li><p>都是面向对象的编程语言，都有封装、继承、多态特性</p>
+</li>
+<li><p>java不提供指针来直接访问内存，程序内存更安全</p>
+</li>
+<li><p>java类是单继承的，c++是多继承的，但是java的接口是多继承的</p>
+</li>
+<li><p>java有自动的内存管理机制，不需要程序员手动的释放无用内存</p>
+</li>
+</ul>
+<h3 id="java面向对象的三大特性：封装、继承、多态"><a href="#java面向对象的三大特性：封装、继承、多态" class="headerlink" title="java面向对象的三大特性：封装、继承、多态"></a>java面向对象的三大特性：封装、继承、多态</h3><ul>
+<li>封装</li>
+<li>继承<ul>
+<li>子类继承父类拥有父类的私有方法和属性，但是只是拥有，却无法访问</li>
+</ul>
+</li>
+<li>多态<ul>
+<li>在java中只有两种形式能实现多态<ul>
+<li>继承：多个子类对同一个父类方法进行重写</li>
+<li>接口：实现接口并覆盖接口中的同一方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="StringBuffer-and-stringbuilder-的区别是什么？string为什么是不可变的"><a href="#StringBuffer-and-stringbuilder-的区别是什么？string为什么是不可变的" class="headerlink" title="StringBuffer and stringbuilder 的区别是什么？string为什么是不可变的"></a>StringBuffer and stringbuilder 的区别是什么？string为什么是不可变的</h3><ul>
+<li>因为string对象中使用final关键字 修饰 字符数组 来保存字符串</li>
+<li>StringBuffer <ul>
+<li>线程安全</li>
+</ul>
+</li>
+<li>stringbuilder <ul>
+<li>线程不安全</li>
+<li>性能比buffer高10%-15%</li>
+</ul>
+</li>
+</ul>
+<h3 id="在java中定义一个不做事且没有参数的构造方法的作用"><a href="#在java中定义一个不做事且没有参数的构造方法的作用" class="headerlink" title="在java中定义一个不做事且没有参数的构造方法的作用"></a>在java中定义一个不做事且没有参数的构造方法的作用</h3><ul>
+<li>子类没有通过super调用父类构造器，就会调用父类无参构造器，若没有报错</li>
+</ul>
+<h3 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a>接口和抽象类的区别</h3><ul>
+<li>从设计层面来说，抽象是对类的抽象，是一种模板设计，接口是对行为的抽象，是一种行为的规范。</li>
+<li>一个类可以实现多个接口，但是只能实现一个抽象类</li>
+<li>接口方法默认修饰符是public，但是抽象类可以有public、protected 和 default，因为抽象类的方法就是用来被重写的所以不能用private。</li>
+<li>接口中在jdk1.8之前不能有方法的实现，而抽象类可以有非抽象方法   </li>
+</ul>
+<h3 id="成员变量和局部变量的区别"><a href="#成员变量和局部变量的区别" class="headerlink" title="成员变量和局部变量的区别"></a>成员变量和局部变量的区别</h3><ul>
+<li>从语法形式上看<ul>
+<li>成员变量是属于类的<ul>
+<li>可以被修饰符修饰</li>
+</ul>
+</li>
+<li>局部变量是在方法中定义的变量或是方法的参数<ul>
+<li>不可以被访问控制修饰符及static修饰</li>
+</ul>
+</li>
+<li>都可以被final修饰</li>
+</ul>
+</li>
+<li>从在内存中的存储方式上看<ul>
+<li>对象存在堆内存<ul>
+<li>如果成员变量是使用static修饰的那么是属于类的</li>
+<li>否则是属于实例的</li>
+</ul>
+</li>
+<li>局部变量存在栈内存</li>
+</ul>
+</li>
+<li>从在内存中的生存时间上看<ul>
+<li>成员变量是对象中的一部分，他随着对象的创建而存在</li>
+<li>而局部变量随着方法的调用而消失。</li>
+</ul>
+</li>
+<li>如果没有被赋予初始值<ul>
+<li>成员变量会自动被赋予类型的默认值<ul>
+<li>被final修饰的成员变量需要显式赋值</li>
+</ul>
+</li>
+<li>局部变量不会</li>
+</ul>
+</li>
+</ul>
+<h3 id="对象实体与对象有什么区别"><a href="#对象实体与对象有什么区别" class="headerlink" title="对象实体与对象有什么区别"></a>对象实体与对象有什么区别</h3><ul>
+<li>通过new运算符创建对象</li>
+<li>对象实例存放在堆中<ul>
+<li>对象实例可以被多个引用所指</li>
+</ul>
+</li>
+<li>对象引用存放在栈中<ul>
+<li>对象引用指向对象实例</li>
+<li>对象引用只能指向一个或0个实例</li>
+</ul>
+</li>
+</ul>
+<h3 id="静态方法和实例方法有什么不同"><a href="#静态方法和实例方法有什么不同" class="headerlink" title="静态方法和实例方法有什么不同"></a>静态方法和实例方法有什么不同</h3><ul>
+<li>静态方法可以不通过实例化就可以调用</li>
+<li>静态方法在访问本类成员时只能访问静态成员（静态方法，静态成员变量）</li>
+</ul>
+<h3 id="对象的相等与指向他们的引用的相等有什么不同"><a href="#对象的相等与指向他们的引用的相等有什么不同" class="headerlink" title="对象的相等与指向他们的引用的相等有什么不同"></a>对象的相等与指向他们的引用的相等有什么不同</h3><ul>
+<li>对象的相等是，内存中存放的内容是否相等</li>
+<li>指向他们的引用的相等是，他们是否指向同一个内存地址</li>
+</ul>
+<h3 id="在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法-其⽬的是"><a href="#在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法-其⽬的是" class="headerlink" title="在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法,其⽬的是?"></a>在调⽤⼦类构造⽅法之前会先调⽤⽗类没有参数的构造⽅法,其⽬的是?</h3><ul>
+<li>帮助子类做初始化工作</li>
+</ul>
+]]></content>
+      <categories>
+        <category>GUGU</category>
+        <category>后端</category>
+        <category>java</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>java基础</tag>
       </tags>
   </entry>
 </search>

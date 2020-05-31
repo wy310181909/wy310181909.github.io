@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="网络层协议IP协议  IP协议使得复杂的实际网络变成为一个虚拟互连的网络 IP协议使得网络层可以屏蔽底层细节而专注网络层的数据转发 IP协议解决了在虚拟网络中数据包传输路径的问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络之网络层篇">
+<meta property="og:url" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/index.html">
+<meta property="og:site_name" content="YxxY">
+<meta property="og:description" content="网络层协议IP协议  IP协议使得复杂的实际网络变成为一个虚拟互连的网络 IP协议使得网络层可以屏蔽底层细节而专注网络层的数据转发 IP协议解决了在虚拟网络中数据包传输路径的问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/IP%E6%95%B0%E6%8D%AE%E6%8A%A5.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%8D%8F%E8%AE%AE.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%B7%AF%E7%94%B1%E8%A1%A8.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B2.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B3.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B4.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/ARP%E7%BC%93%E5%AD%98%E8%A1%A8%E6%97%A0%E8%AE%B0%E5%BD%95.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/NAT%E8%BD%AC%E6%8D%A2%E7%9A%84%E8%BF%87%E7%A8%8B.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/ICMP.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E5%B7%AE%E9%94%99%E6%8A%A5%E6%96%87.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%AF%A2%E9%97%AE%E6%8A%A5%E6%96%87.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/PING.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV1.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV2.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV3.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV4.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E6%A3%80%E7%B4%A21.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E6%A3%80%E7%B4%A22.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E6%A3%80%E7%B4%A23.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E7%BC%BA%E7%82%B9.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/ospf%E8%BF%87%E7%A8%8B.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ1.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ2.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ3.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ4.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ5.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ6.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP-OSPF%E5%AF%B9%E6%AF%94.png">
+<meta property="article:published_time" content="2020-05-31T06:49:00.000Z">
+<meta property="article:modified_time" content="2020-05-31T06:52:00.047Z">
+<meta property="article:author" content="Yue">
+<meta property="article:tag" content="基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/IP%E6%95%B0%E6%8D%AE%E6%8A%A5.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>计算机网络之网络层篇 | YxxY</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">YxxY</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yxxy.jpg">
+      <meta itemprop="name" content="Yue">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YxxY">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络之网络层篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-31 14:49:00 / 修改时间：14:52:00" itemprop="dateCreated datePublished" datetime="2020-05-31T14:49:00+08:00">2020-05-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GUGU/" itemprop="url" rel="index"><span itemprop="name">GUGU</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/KOUKOU/" itemprop="url" rel="index"><span itemprop="name">KOUKOU</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/" class="post-meta-item leancloud_visitors" data-flag-title="计算机网络之网络层篇" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">评论数量：</span>
+    
+    <a title="valine" href="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="网络层协议"><a href="#网络层协议" class="headerlink" title="网络层协议"></a><strong>网络层协议</strong></h3><h4 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h4><blockquote>
+<ul>
+<li>IP协议使得复杂的实际网络变成为一个虚拟互连的网络</li>
+<li>IP协议使得网络层可以屏蔽底层细节而专注网络层的数据转发</li>
+<li>IP协议解决了在虚拟网络中数据包传输路径的问题</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h5 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h5><ul>
+<li>IP地址是可变的，网卡上的MAC地址是唯一的</li>
+<li>IP地址长度为32为，常分为4个8位</li>
+<li>IP地址常使用点分十进制来表示（0<del>255.0</del>255.0<del>255.0</del>255）</li>
+</ul>
+<h5 id="IP数据报"><a href="#IP数据报" class="headerlink" title="IP数据报"></a>IP数据报</h5><img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/IP%E6%95%B0%E6%8D%AE%E6%8A%A5.png" class>
+
+<ul>
+<li><p>IP数据报可以携带不同协议的数据</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E4%B8%8D%E5%90%8C%E7%9A%84%E5%8D%8F%E8%AE%AE.png" class>
+
+</li>
+</ul>
+<h5 id="IP协议的转发流程"><a href="#IP协议的转发流程" class="headerlink" title="IP协议的转发流程"></a>IP协议的转发流程</h5><blockquote>
+<ul>
+<li><p>逐跳</p>
+</li>
+<li><p>路由表</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%B7%AF%E7%94%B1%E8%A1%A8.png" class>
+
+<ul>
+<li>计算机或者路由器都拥有路由表</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B2.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B3.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%BD%AC%E5%8F%91%E6%B5%81%E7%A8%8B4.png" class>
+
+<ul>
+<li>特点<ul>
+<li>数据帧每一跳的MAC地址都在变化</li>
+<li>IP数据报每一跳的IP地址始终不变</li>
+</ul>
+</li>
+</ul>
+<h4 id="ARP协议和RARP协议"><a href="#ARP协议和RARP协议" class="headerlink" title="ARP协议和RARP协议"></a>ARP协议和RARP协议</h4><h5 id="ARP地址解析协议"><a href="#ARP地址解析协议" class="headerlink" title="ARP地址解析协议"></a>ARP地址解析协议</h5><ul>
+<li><p>网络层IP32位地址——&gt;数据链路层MAC48位地址</p>
+</li>
+<li><p>ARP缓存表</p>
+<ul>
+<li>是ARP协议和RARP协议运行的关键</li>
+<li>缓存了IP地址到硬件地址之间的映射关系</li>
+<li>记录的数据并不是永久有效的，有一定的期限</li>
+</ul>
+</li>
+<li><p>ARP协议的解析过程</p>
+<ul>
+<li><p>ARP缓存表有缓存记录则直接转换</p>
+</li>
+<li><p>ARP缓存表没有缓存记录则像MAC地址表一样广播</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/ARP%E7%BC%93%E5%AD%98%E8%A1%A8%E6%97%A0%E8%AE%B0%E5%BD%95.png" class>
+
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="RARP地址逆解析协议"><a href="#RARP地址逆解析协议" class="headerlink" title="RARP地址逆解析协议"></a>RARP地址逆解析协议</h5><ul>
+<li>数据链路层MAC48位地址——&gt;网络层IP32位地址</li>
+</ul>
+<h4 id="NAT协议（网络地址转换协议）"><a href="#NAT协议（网络地址转换协议）" class="headerlink" title="NAT协议（网络地址转换协议）"></a>NAT协议（网络地址转换协议）</h4><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><ul>
+<li><p>NAT技术用于多个主机通过一个公有IP访问互联网的私有网络中</p>
+</li>
+<li><p>NAT减缓了IP地址的消耗，但是增加了网络通信的复杂度</p>
+</li>
+<li><p>因IP地址不足而产生的协议——NAT网络协议</p>
+</li>
+<li><p>内网地址</p>
+<ul>
+<li>内部机构使用</li>
+<li>避免与外网地址重复</li>
+<li>三类<ul>
+<li>10.0.0.0~10.255.255.255（支持千万数量级设备）</li>
+<li>172.16.0.0~172.31.255.255（支持百万数量级设备）</li>
+<li>192.168.0.0~192.168.255.255（支持万数量级设备）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>外网地址</p>
+<ul>
+<li>全球范围使用</li>
+<li>全球公网唯一</li>
+</ul>
+</li>
+<li><p>NAT转换的过程</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/NAT%E8%BD%AC%E6%8D%A2%E7%9A%84%E8%BF%87%E7%A8%8B.png" class>）
+
+</li>
+</ul>
+<h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a><strong>分类</strong></h5><ol>
+<li>静态NAT</li>
+<li>动态NAT</li>
+<li>PAT(Port Address Translation)<ul>
+<li>映射多个私有网IP地址到一个公网IP地址，通过使用不同的端口来区分内网主机</li>
+</ul>
+</li>
+</ol>
+<h5 id="NAT与端口映射的区别"><a href="#NAT与端口映射的区别" class="headerlink" title="NAT与端口映射的区别"></a><strong>NAT与端口映射的区别</strong></h5><p>端口映射和端口地址转换PAT是两个概念！PAT是使得多个内网主机可以通过一个公网IP同时访问Internet，而端口映射则可以让internet主机访问内网主机！</p>
+<h4 id="ICMP协议（网际控制报文协议）"><a href="#ICMP协议（网际控制报文协议）" class="headerlink" title="ICMP协议（网际控制报文协议）"></a>ICMP协议（网际控制报文协议）</h4><ul>
+<li><p>辅助IP协议用于数据传输</p>
+</li>
+<li><p>报告错误信息或异常情况</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/ICMP.png" class>
+
+</li>
+</ul>
+<h5 id="ICMP种类"><a href="#ICMP种类" class="headerlink" title="ICMP种类"></a>ICMP种类</h5><ul>
+<li><p>差错报告报文</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E5%B7%AE%E9%94%99%E6%8A%A5%E6%96%87.png" class>
+</li>
+<li><p>询问报文</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/%E8%AF%A2%E9%97%AE%E6%8A%A5%E6%96%87.png" class>
+
+</li>
+</ul>
+<h5 id="ICMP协议的应用"><a href="#ICMP协议的应用" class="headerlink" title="ICMP协议的应用"></a>ICMP协议的应用</h5><h6 id="Ping应用"><a href="#Ping应用" class="headerlink" title="Ping应用"></a>Ping应用</h6><img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/PING.png" class>）
+
+<ul>
+<li><p>ping回环地址127.0.0.1</p>
+<ul>
+<li>对本地网络协议的检查</li>
+</ul>
+</li>
+<li><p>ping网关地址</p>
+<ul>
+<li>检查计算机到网关的线路有无问题</li>
+</ul>
+</li>
+<li><p>ping远端地址</p>
+<ul>
+<li>检查路由器到ISP（运营商）的线路有无问题</li>
+</ul>
+</li>
+</ul>
+<h6 id="Traceroute应用"><a href="#Traceroute应用" class="headerlink" title="Traceroute应用"></a>Traceroute应用</h6><ul>
+<li>可以探测IP数据在网络中走过的路径</li>
+<li>运用TTL的特点，当TTL=0时，网络设备必须丢弃该报文<ul>
+<li>应用了ICMP终点不可达差错报文</li>
+</ul>
+</li>
+</ul>
+<h3 id="动态路由算法"><a href="#动态路由算法" class="headerlink" title="动态路由算法"></a>动态路由算法</h3><h4 id="自治系统AS"><a href="#自治系统AS" class="headerlink" title="自治系统AS"></a>自治系统AS</h4><ul>
+<li>处于一个管理机构下的网络设备群</li>
+<li>AS内部网络自行管理，AS对外提供一个或者多个出（入）口</li>
+</ul>
+<h4 id="内部网关路由协议（RIP、OSPF）"><a href="#内部网关路由协议（RIP、OSPF）" class="headerlink" title="内部网关路由协议（RIP、OSPF）"></a>内部网关路由协议（RIP、OSPF）</h4><ul>
+<li>自治系统内部路由的协议</li>
+</ul>
+<h5 id="距离矢量路由协议"><a href="#距离矢量路由协议" class="headerlink" title="距离矢量路由协议"></a>距离矢量路由协议</h5><h6 id="距离矢量-DV-算法"><a href="#距离矢量-DV-算法" class="headerlink" title="距离矢量(DV)算法"></a>距离矢量(DV)算法</h6><ul>
+<li><p>算法过程</p>
+<ul>
+<li><p>每一个节点使用两个向量Di和Si</p>
+<ul>
+<li>Di描述的是当前节点到别的节点的距离</li>
+<li>Si描述的是当前节点到别的节点的下一个节点</li>
+</ul>
+</li>
+<li><p>每一个节点与相邻的节点交换向量Di和Si的信息</p>
+</li>
+<li><p>每一个节点根据交换的信息更新自己的节点信息</p>
+</li>
+<li><p>例子及图解</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV1.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV2.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV3.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DV4.png" class>
+
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="RIP协议（应用DV算法）"><a href="#RIP协议（应用DV算法）" class="headerlink" title="RIP协议（应用DV算法）"></a>RIP协议（应用DV算法）</h6><ul>
+<li><p>RIP协议把网络的跳数作为DV算法的距离</p>
+</li>
+<li><p>RIP协议每隔30s交换一次路由信息</p>
+</li>
+<li><p>RIP协议认为跳数 &gt; 15的路由则为不可达路由</p>
+</li>
+<li><p>过程</p>
+<ul>
+<li><p>路由器初始化路由信息（两个向量Di和Si）</p>
+</li>
+<li><p>对相邻路由器X发过来的信息，对信息的内容进行修改（下一跳地址设置为X，所有距离加1）</p>
+<ul>
+<li><p>检索本地路由，将信息中新的路由插入到路由表里面</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E6%A3%80%E7%B4%A21.png" class>
+</li>
+<li><p>检索本地路由，对于吓一跳为X的，更新为修改后的信息</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E6%A3%80%E7%B4%A22.png" class>
+</li>
+<li><p>检索本地路由，对比相同目的的距离，如果新信息的距离更小，则更新本地路由表</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E6%A3%80%E7%B4%A23.png" class>
+</li>
+</ul>
+</li>
+<li><p>如果3分钟没有收到相邻的路由信息，则把相邻路由设置为不可达（16跳）</p>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP%E7%BC%BA%E7%82%B9.png" class>
+
+<ul>
+<li>实现简单，开销很小</li>
+<li>限制了网络的规模</li>
+<li>“坏消息传的慢”，更新收敛时间过长</li>
+</ul>
+</li>
+</ul>
+<h5 id="链路状态路由协议"><a href="#链路状态路由协议" class="headerlink" title="链路状态路由协议"></a>链路状态路由协议</h5><h6 id="链路状态（LS）协议"><a href="#链路状态（LS）协议" class="headerlink" title="链路状态（LS）协议"></a>链路状态（LS）协议</h6><ul>
+<li>向所有的路由器发送消息</li>
+<li>消息描述该路由器与相邻路由器的链路状态<ul>
+<li>链路状态包括：距离、时延、宽带等<ul>
+<li>由网络管理人员决定的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>只有链路状态发送变化时，才发送更新信息</li>
+</ul>
+<h6 id="OSPF协议（是链路状态路由协议的一种实现）"><a href="#OSPF协议（是链路状态路由协议的一种实现）" class="headerlink" title="OSPF协议（是链路状态路由协议的一种实现）"></a>OSPF协议（是链路状态路由协议的一种实现）</h6><ul>
+<li><p>OSPF：开放最短路径优先</p>
+</li>
+<li><p>OSPF协议的核心是Dijkstra算法</p>
+</li>
+<li><p>OSPF协议的过程</p>
+<ul>
+<li><p>向所有的路由器发送消息</p>
+<ul>
+<li>获得网络中的所有信息——&gt;“网络的完整拓扑”<ul>
+<li>也称为“链路状态数据库”，是全网一致的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>消息描述该路由器与相邻路由器的链路状态</p>
+<ul>
+<li>OSPF协议更加客观、更加先进</li>
+</ul>
+</li>
+<li><p>只有链路状态发送变化时，才发送更新信息</p>
+<ul>
+<li>减少了数据的交换，更快收敛</li>
+</ul>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/ospf%E8%BF%87%E7%A8%8B.png" class>
+</li>
+</ul>
+</li>
+<li><p>五种消息类型</p>
+<ul>
+<li>问候消息</li>
+<li>链路状态数据库描述信息</li>
+<li>链路状态请求信息</li>
+<li>链路状态更新信息</li>
+<li>链路状态确认信息</li>
+</ul>
+</li>
+</ul>
+<h6 id="Dijkstra（迪杰斯特拉）算法"><a href="#Dijkstra（迪杰斯特拉）算法" class="headerlink" title="Dijkstra（迪杰斯特拉）算法"></a>Dijkstra（迪杰斯特拉）算法</h6><ul>
+<li><p>解决有权图从一个节点到其他节点的最短路径问题</p>
+</li>
+<li><p>“以起始点为中心，向外层层扩展”</p>
+</li>
+<li><p>过程</p>
+<ul>
+<li><p>初始化两个集合（S,U）（S为只有初始顶点点A的集合，U为其他顶点的集合）</p>
+</li>
+<li><p>如果U不为空，对U集合顶点进行距离的排序，并取出距离A最近的一个顶点D</p>
+<ul>
+<li>将顶点D的纳入S集合</li>
+<li>更新通过顶点 D到达U集合所有点的距离（如果距离更小则更新，否则不更新）</li>
+<li>重复2步骤</li>
+</ul>
+</li>
+<li><p>直到U集合为空，算法完成</p>
+</li>
+<li><p>例子与图解</p>
+<ul>
+<li>求A到各个节点的最短距离</li>
+</ul>
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ1.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ2.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ3.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ4.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ5.png" class>
+
+<img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/DJ6.png" class>
+
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="RIP协议与OSPF协议对比"><a href="#RIP协议与OSPF协议对比" class="headerlink" title="RIP协议与OSPF协议对比"></a>RIP协议与OSPF协议对比</h6><img src="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/RIP-OSPF%E5%AF%B9%E6%AF%94.png" class>
+
+<h4 id="外部网关路由协议（BGP）"><a href="#外部网关路由协议（BGP）" class="headerlink" title="外部网关路由协议（BGP）"></a>外部网关路由协议（BGP）</h4><ul>
+<li>自治系统内部路由的协议</li>
+</ul>
+<h5 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h5><ul>
+<li><p>使用原因</p>
+<ul>
+<li>互联网的规模很大</li>
+<li>AS内部使用不同的路由协议</li>
+<li>AS之间需要考虑除网络特性以外的一些因素（政治、安全）</li>
+</ul>
+</li>
+<li><p>边际网关协议</p>
+</li>
+<li><p>运行在AS之间的一种协议</p>
+</li>
+<li><p>能够找到一条到达目的比较好的路由</p>
+</li>
+<li><p>AS之间通过BGP发言人来进行路由信息的交换</p>
+<ul>
+<li><p>BGP发言人（speaker）</p>
+<ul>
+<li>BGP并不关心内部网络拓扑</li>
+<li>AS之间通过BGP发言人交流信息</li>
+<li>BGP Spearker可以人为配置策略</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag"># 基础</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/" rel="prev" title="计算机网络之概述篇">
+      <i class="fa fa-chevron-left"></i> 计算机网络之概述篇
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层协议"><span class="nav-number">1.</span> <span class="nav-text">网络层协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IP协议"><span class="nav-number">1.1.</span> <span class="nav-text">IP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#IP地址"><span class="nav-number">1.1.1.</span> <span class="nav-text">IP地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IP数据报"><span class="nav-number">1.1.2.</span> <span class="nav-text">IP数据报</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IP协议的转发流程"><span class="nav-number">1.1.3.</span> <span class="nav-text">IP协议的转发流程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ARP协议和RARP协议"><span class="nav-number">1.2.</span> <span class="nav-text">ARP协议和RARP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ARP地址解析协议"><span class="nav-number">1.2.1.</span> <span class="nav-text">ARP地址解析协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#RARP地址逆解析协议"><span class="nav-number">1.2.2.</span> <span class="nav-text">RARP地址逆解析协议</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NAT协议（网络地址转换协议）"><span class="nav-number">1.3.</span> <span class="nav-text">NAT协议（网络地址转换协议）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#概述"><span class="nav-number">1.3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分类"><span class="nav-number">1.3.2.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NAT与端口映射的区别"><span class="nav-number">1.3.3.</span> <span class="nav-text">NAT与端口映射的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ICMP协议（网际控制报文协议）"><span class="nav-number">1.4.</span> <span class="nav-text">ICMP协议（网际控制报文协议）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ICMP种类"><span class="nav-number">1.4.1.</span> <span class="nav-text">ICMP种类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ICMP协议的应用"><span class="nav-number">1.4.2.</span> <span class="nav-text">ICMP协议的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Ping应用"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">Ping应用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Traceroute应用"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">Traceroute应用</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态路由算法"><span class="nav-number">2.</span> <span class="nav-text">动态路由算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自治系统AS"><span class="nav-number">2.1.</span> <span class="nav-text">自治系统AS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内部网关路由协议（RIP、OSPF）"><span class="nav-number">2.2.</span> <span class="nav-text">内部网关路由协议（RIP、OSPF）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#距离矢量路由协议"><span class="nav-number">2.2.1.</span> <span class="nav-text">距离矢量路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#距离矢量-DV-算法"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">距离矢量(DV)算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RIP协议（应用DV算法）"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">RIP协议（应用DV算法）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#链路状态路由协议"><span class="nav-number">2.2.2.</span> <span class="nav-text">链路状态路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#链路状态（LS）协议"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">链路状态（LS）协议</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#OSPF协议（是链路状态路由协议的一种实现）"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">OSPF协议（是链路状态路由协议的一种实现）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Dijkstra（迪杰斯特拉）算法"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">Dijkstra（迪杰斯特拉）算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RIP协议与OSPF协议对比"><span class="nav-number">2.2.2.4.</span> <span class="nav-text">RIP协议与OSPF协议对比</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外部网关路由协议（BGP）"><span class="nav-number">2.3.</span> <span class="nav-text">外部网关路由协议（BGP）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#BGP"><span class="nav-number">2.3.1.</span> <span class="nav-text">BGP</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yue"
+      src="/images/yxxy.jpg">
+  <p class="site-author-name" itemprop="name">Yue</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:310181909@qq.com" title="E-Mail → mailto:310181909@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yue</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'xDOhRiKo5FL6cIgXMLjIoWol-gzGzoHsz',
+      appKey     : 'QmNaxFwH7FYWXTMclPYBcYXt',
+      placeholder: "请在此输入您的留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
