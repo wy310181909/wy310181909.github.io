@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="冯诺依曼机 存储器 运算器 控制器 CPU相当于——存储器、运算器、控制器 内存条、硬盘相当于——存储器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理之组成篇">
+<meta property="og:url" content="http://yoursite.com/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/index.html">
+<meta property="og:site_name" content="YxxY">
+<meta property="og:description" content="冯诺依曼机 存储器 运算器 控制器 CPU相当于——存储器、运算器、控制器 内存条、硬盘相当于——存储器">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/CPU%E4%B8%8E%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/%E6%8C%87%E4%BB%A4%E8%A1%A8.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/cpu%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84.png">
+<meta property="article:published_time" content="2020-06-14T08:19:05.000Z">
+<meta property="article:modified_time" content="2020-06-14T08:23:41.256Z">
+<meta property="article:author" content="Yue">
+<meta property="article:tag" content="基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>计算机组成原理之组成篇 | YxxY</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">YxxY</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yxxy.jpg">
+      <meta itemprop="name" content="Yue">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YxxY">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机组成原理之组成篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-14 16:19:05 / 修改时间：16:23:41" itemprop="dateCreated datePublished" datetime="2020-06-14T16:19:05+08:00">2020-06-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GUGU/" itemprop="url" rel="index"><span itemprop="name">GUGU</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/KOUKOU/" itemprop="url" rel="index"><span itemprop="name">KOUKOU</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">计算机组成原理</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/" class="post-meta-item leancloud_visitors" data-flag-title="计算机组成原理之组成篇" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">评论数量：</span>
+    
+    <a title="valine" href="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="冯诺依曼机"><a href="#冯诺依曼机" class="headerlink" title="冯诺依曼机"></a>冯诺依曼机</h3><ul>
+<li>存储器</li>
+<li>运算器</li>
+<li>控制器</li>
+<li>CPU相当于——存储器、运算器、控制器</li>
+<li>内存条、硬盘相当于——存储器<a id="more"></a>
+<h3 id="计算机的总线"><a href="#计算机的总线" class="headerlink" title="计算机的总线"></a>计算机的总线</h3></li>
+</ul>
+<h4 id="总线的分类"><a href="#总线的分类" class="headerlink" title="总线的分类"></a>总线的分类</h4><ul>
+<li>片内总线<ul>
+<li>高集成度芯片（CPU）内部的信息传输线</li>
+<li>连接寄存器与寄存器</li>
+<li>连接寄存器与控制器、运算器之间</li>
+</ul>
+</li>
+<li>系统总线<ul>
+<li>数据总线<ul>
+<li>总要参数<ul>
+<li>位数（总线宽度）</li>
+<li>一般与CPU位数相同（32位、64位）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>地址总线</li>
+<li>控制总线</li>
+<li>总线的仲裁</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算机存储器"><a href="#计算机存储器" class="headerlink" title="计算机存储器"></a>计算机存储器</h3><h4 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h4><h5 id="按存储介质分"><a href="#按存储介质分" class="headerlink" title="按存储介质分"></a>按存储介质分</h5><ul>
+<li>半导体存储器</li>
+<li>磁存储器</li>
+</ul>
+<h5 id="按存取方式分类"><a href="#按存取方式分类" class="headerlink" title="按存取方式分类"></a>按存取方式分类</h5><ul>
+<li>随机存储器（RAM）<ul>
+<li>随机存取</li>
+<li>与位置无关</li>
+</ul>
+</li>
+<li>只读存储器（ROM）</li>
+<li>串行存储器<ul>
+<li>按顺序读取</li>
+<li>与位置有关</li>
+</ul>
+</li>
+</ul>
+<h4 id="存储器的层次结构"><a href="#存储器的层次结构" class="headerlink" title="存储器的层次结构"></a>存储器的层次结构</h4><ol>
+<li>缓存</li>
+<li>主存</li>
+<li>辅存</li>
+</ol>
+<h5 id="CPU与存储器的层次结构"><a href="#CPU与存储器的层次结构" class="headerlink" title="CPU与存储器的层次结构"></a>CPU与存储器的层次结构</h5><img src="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.png" class>
+
+<ul>
+<li>缓存-主存层次<ul>
+<li>解决主存传输速度不足问题</li>
+</ul>
+</li>
+<li>主存-辅存层次<ul>
+<li>解决主存容量不足问题</li>
+</ul>
+</li>
+</ul>
+<h4 id="高速存储器、主存储器和辅存储器"><a href="#高速存储器、主存储器和辅存储器" class="headerlink" title="高速存储器、主存储器和辅存储器"></a>高速存储器、主存储器和辅存储器</h4><h5 id="高速缓存器——集成在CPU内部"><a href="#高速缓存器——集成在CPU内部" class="headerlink" title="高速缓存器——集成在CPU内部"></a>高速缓存器——集成在CPU内部</h5><ul>
+<li>与CPU距离排序<ul>
+<li>寄存器 -&gt; 缓存（一、二或三级）-&gt;内存</li>
+</ul>
+</li>
+<li>==<strong>有寄存器为啥还要缓存</strong>==<ul>
+<li>CPU中有各式各样的寄存器<ul>
+<li>按功能划分</li>
+</ul>
+</li>
+<li>但是缓存是对应整个CPU的<ul>
+<li>相当于一个整体</li>
+</ul>
+</li>
+<li>缓存中数据不一定是需要的，寄存器中数据一定是需要的</li>
+</ul>
+</li>
+</ul>
+<h6 id="高速缓存的替换策略"><a href="#高速缓存的替换策略" class="headerlink" title="高速缓存的替换策略"></a>高速缓存的替换策略</h6><ul>
+<li>随机算法</li>
+<li>先进先出算法</li>
+<li>最不经常使用算法</li>
+<li>最近最少使用算法</li>
+</ul>
+<h5 id="主存储器——内存"><a href="#主存储器——内存" class="headerlink" title="主存储器——内存"></a>主存储器——内存</h5><ul>
+<li><p>RAM</p>
+</li>
+<li><p>RAM通过电容存储数据，必须隔一段时间刷新一次</p>
+</li>
+<li><p>如果掉电，会丢失所有数据</p>
+</li>
+<li><p>CPU与主存储器</p>
+<img src="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/CPU%E4%B8%8E%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8.png" class>
+<h5 id="辅存储器——磁盘"><a href="#辅存储器——磁盘" class="headerlink" title="辅存储器——磁盘"></a>辅存储器——磁盘</h5></li>
+<li><p>移动磁头径向运动读取磁道信息</p>
+</li>
+</ul>
+<h6 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h6><ol>
+<li>先来先服务算法</li>
+<li>最短寻道时间算法</li>
+<li>扫描算法（电梯算法）</li>
+<li>循环算法</li>
+</ol>
+<h3 id="计算机的CPU"><a href="#计算机的CPU" class="headerlink" title="计算机的CPU"></a>计算机的CPU</h3><h4 id="机器指令"><a href="#机器指令" class="headerlink" title="机器指令"></a>机器指令</h4><h5 id="机器指令形式"><a href="#机器指令形式" class="headerlink" title="机器指令形式"></a>机器指令形式</h5><ul>
+<li>机器指令中的地址码指向寄存器或者内存  <img src="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/%E6%8C%87%E4%BB%A4%E8%A1%A8.png" class>
+<h5 id="机器指令操作类型"><a href="#机器指令操作类型" class="headerlink" title="机器指令操作类型"></a>机器指令操作类型</h5></li>
+</ul>
+<ol>
+<li>数据传输</li>
+<li>算术逻辑操作</li>
+<li>移位操作</li>
+<li>控制指令</li>
+</ol>
+<h5 id="机器指令寻址方式"><a href="#机器指令寻址方式" class="headerlink" title="机器指令寻址方式"></a>机器指令寻址方式</h5><img src="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F.png" class>
+
+<h4 id="控制单元"><a href="#控制单元" class="headerlink" title="控制单元"></a>控制单元</h4><blockquote>
+<p>控制单元是整个CPU的指挥控制中心，由指令寄存器IR(Instruction Register)、指令译码器ID(Instruction Decoder)和操作控制器OC(Operation Controller)等，对协调整个电脑有序工作极为重要。它根据用户预先编好的程序，依次从存储器中取出各条指令，放在指令寄存器IR中，通过指令译码(分析)确定应该进行什么操作，然后通过操作控制器OC，按确定的时序，向相应的部件发出微操作控制信号。操作控制器OC中主要包括节拍脉冲发生器、控制矩阵、时钟脉冲发生器、复位电路和启停电路等控制逻辑。</p>
+</blockquote>
+<h5 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h5><img src="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/cpu%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84.png" class>
+
+<ul>
+<li>程序计数器<ul>
+<li>用来存储下一条指令的<strong>地址</strong></li>
+<li>若是地址被取出，就指向下一条地址</li>
+</ul>
+</li>
+<li>时序发生器<ul>
+<li>CPU依据不同的时序脉冲有节奏的进行工作</li>
+<li>超频：提高工作频率</li>
+</ul>
+</li>
+<li>指令译码器<ul>
+<li>翻译操作码对应的操作</li>
+<li>控制传输地址码对应的数据</li>
+</ul>
+</li>
+<li>各种寄存器<ul>
+<li>指令寄存器<ul>
+<li>存储从高速缓存和主存获取的指令</li>
+</ul>
+</li>
+<li>主存地址寄存器<ul>
+<li>保存<strong>当前正要访问</strong>的内存单元的地址</li>
+</ul>
+</li>
+<li>主存数据寄存器<ul>
+<li>保存<strong>当前正要</strong>读写的内存数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="计算单元"><a href="#计算单元" class="headerlink" title="计算单元"></a>计算单元</h4><blockquote>
+<p>是运算器的核心。可以执行算术运算(包括加减乘数等基本运算及其附加运算)和逻辑运算(包括移位、逻辑测试或两个值比较)。相对控制单元而言，运算器接受控制单元的命令而进行动作，即运算单元所进行的全部操作都是由控制单元发出的控制信号来指挥的，所以它是执行部件。</p>
+</blockquote>
+<h5 id="结构-1"><a href="#结构-1" class="headerlink" title="结构"></a>结构</h5><ul>
+<li>数据缓冲器</li>
+<li>ALU</li>
+<li>通用寄存器</li>
+<li>状态字寄存器</li>
+</ul>
+<h4 id="存储单元"><a href="#存储单元" class="headerlink" title="存储单元"></a>存储单元</h4><blockquote>
+<p>包括CPU片内缓存和寄存器组，是CPU中暂时存放数据的地方，里面保存着那些等待处理的数据，或已经处理过的数据，CPU访问寄存器所用的时间要比访问内存的时间短。采用寄存器，可以减少CPU访问内存的次数，从而提高了CPU的工作速度。但因为受到芯片面积和集成度所限，寄存器组的容量不可能很大。寄存器组可分为专用寄存器和通用寄存器。专用寄存器的作用是固定的，分别寄存相应的数据。而通用寄存器用途广泛并可由程序员规定其用途，通用寄存器的数目因微处理器而异。这个是我们以后要介绍这个重点，这里先提一下。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag"># 基础</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%B1%82%E7%AF%87/" rel="prev" title="计算机网络之网络层篇">
+      <i class="fa fa-chevron-left"></i> 计算机网络之网络层篇
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#冯诺依曼机"><span class="nav-number">1.</span> <span class="nav-text">冯诺依曼机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机的总线"><span class="nav-number">2.</span> <span class="nav-text">计算机的总线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总线的分类"><span class="nav-number">2.1.</span> <span class="nav-text">总线的分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机存储器"><span class="nav-number">3.</span> <span class="nav-text">计算机存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存储器的分类"><span class="nav-number">3.1.</span> <span class="nav-text">存储器的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#按存储介质分"><span class="nav-number">3.1.1.</span> <span class="nav-text">按存储介质分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按存取方式分类"><span class="nav-number">3.1.2.</span> <span class="nav-text">按存取方式分类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储器的层次结构"><span class="nav-number">3.2.</span> <span class="nav-text">存储器的层次结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CPU与存储器的层次结构"><span class="nav-number">3.2.1.</span> <span class="nav-text">CPU与存储器的层次结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高速存储器、主存储器和辅存储器"><span class="nav-number">3.3.</span> <span class="nav-text">高速存储器、主存储器和辅存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#高速缓存器——集成在CPU内部"><span class="nav-number">3.3.1.</span> <span class="nav-text">高速缓存器——集成在CPU内部</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#高速缓存的替换策略"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">高速缓存的替换策略</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#主存储器——内存"><span class="nav-number">3.3.2.</span> <span class="nav-text">主存储器——内存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#辅存储器——磁盘"><span class="nav-number">3.3.3.</span> <span class="nav-text">辅存储器——磁盘</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#磁盘调度算法"><span class="nav-number">3.3.3.1.</span> <span class="nav-text">磁盘调度算法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机的CPU"><span class="nav-number">4.</span> <span class="nav-text">计算机的CPU</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#机器指令"><span class="nav-number">4.1.</span> <span class="nav-text">机器指令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#机器指令形式"><span class="nav-number">4.1.1.</span> <span class="nav-text">机器指令形式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#机器指令操作类型"><span class="nav-number">4.1.2.</span> <span class="nav-text">机器指令操作类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#机器指令寻址方式"><span class="nav-number">4.1.3.</span> <span class="nav-text">机器指令寻址方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制单元"><span class="nav-number">4.2.</span> <span class="nav-text">控制单元</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#结构"><span class="nav-number">4.2.1.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算单元"><span class="nav-number">4.3.</span> <span class="nav-text">计算单元</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#结构-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储单元"><span class="nav-number">4.4.</span> <span class="nav-text">存储单元</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yue"
+      src="/images/yxxy.jpg">
+  <p class="site-author-name" itemprop="name">Yue</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:310181909@qq.com" title="E-Mail → mailto:310181909@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yue</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'xDOhRiKo5FL6cIgXMLjIoWol-gzGzoHsz',
+      appKey     : 'QmNaxFwH7FYWXTMclPYBcYXt',
+      placeholder: "请在此输入您的留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

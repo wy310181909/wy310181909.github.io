@@ -131,6 +131,14 @@
       </tags>
   </entry>
   <entry>
+    <title>Love</title>
+    <url>/2020/04/19/s/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="00acf256cee0fb7f1c87d90e8680f8a8a1d073df689d2c16f18794865183717d">bdeda12f88ab709b4f26c88d4b192778</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>Love</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js基础</title>
     <url>/2020/05/12/js%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h2 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign"></a>Object.assign</h2><p>​    是浅拷贝还是深拷贝?</p>
@@ -156,11 +164,132 @@
       </tags>
   </entry>
   <entry>
-    <title>Love</title>
-    <url>/2020/04/19/s/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="00acf256cee0fb7f1c87d90e8680f8a8a1d073df689d2c16f18794865183717d">bdeda12f88ab709b4f26c88d4b192778</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <title>计算机组成原理之概述篇</title>
+    <url>/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/</url>
+    <content><![CDATA[<h2 id="计算机组成原理之概述篇"><a href="#计算机组成原理之概述篇" class="headerlink" title="计算机组成原理之概述篇"></a>计算机组成原理之概述篇</h2><h3 id="计算机的发展简史"><a href="#计算机的发展简史" class="headerlink" title="计算机的发展简史"></a>计算机的发展简史</h3><ul>
+<li>四个阶段<ol>
+<li>电子管</li>
+<li>晶体管</li>
+<li>集成电路（IC）<ul>
+<li>在该阶段产生了操作系统</li>
+</ul>
+</li>
+<li>超大规模集成电路<a id="more"></a>
+<h3 id="计算机的分类"><a href="#计算机的分类" class="headerlink" title="计算机的分类"></a>计算机的分类</h3></li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>超级计算机</li>
+<li>大型计算机</li>
+<li>迷你计算机（服务器）</li>
+<li>工作站（做视频，画图 – 超高性能）</li>
+<li>微型计算机（个人计算机）</li>
+</ol>
+<h3 id="计算机的体系结构"><a href="#计算机的体系结构" class="headerlink" title="计算机的体系结构"></a>计算机的体系结构</h3><h4 id="冯诺依曼体系"><a href="#冯诺依曼体系" class="headerlink" title="冯诺依曼体系"></a>冯诺依曼体系</h4><ul>
+<li>思想：存储程序指令，设计通用电路</li>
+</ul>
+<img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/1.jpg" class title="计算机的体系与结构">
+
+<h5 id="冯诺依曼瓶颈"><a href="#冯诺依曼瓶颈" class="headerlink" title="冯诺依曼瓶颈"></a>冯诺依曼瓶颈</h5><ul>
+<li>问题：存储器的速率跟不上CPU的运行效率</li>
+<li>表现：CPU经常空转，等到存储器的数据传输<ul>
+<li>CPU空转：CPU通电后就会一直运转，一直执行指令，若无指令就原地旋转。<ul>
+<li>多核CPU：至少有一个CPU不会停止</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="现代计算机结构"><a href="#现代计算机结构" class="headerlink" title="现代计算机结构"></a>现代计算机结构</h4><ul>
+<li>解决了冯诺依曼瓶颈</li>
+</ul>
+<img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/2.jpg" class>
+
+<h3 id="计算机层次与编程语言"><a href="#计算机层次与编程语言" class="headerlink" title="计算机层次与编程语言"></a>计算机层次与编程语言</h3><h4 id="程序编译与程序解释"><a href="#程序编译与程序解释" class="headerlink" title="程序编译与程序解释"></a>程序编译与程序解释</h4><h5 id="程序编译"><a href="#程序编译" class="headerlink" title="程序编译"></a>程序编译</h5><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/3.jpg" class>
+
+<h5 id="程序解释"><a href="#程序解释" class="headerlink" title="程序解释"></a>程序解释</h5><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/4.jpg" class>
+
+<h5 id="程序编译与程序解释的区别"><a href="#程序编译与程序解释的区别" class="headerlink" title="程序编译与程序解释的区别"></a>程序编译与程序解释的区别</h5><ul>
+<li><p>编译的时候编译器会把源文件处理一遍，生成一个目标文件，而解释就是边处理源文件边执行。</p>
+</li>
+<li><p>编译相当于做好一桌子菜再开吃，解释就是吃火锅，得一边煮一边吃，所以解释执行效率会低一些。</p>
+</li>
+</ul>
+<h4 id="计算机得层次"><a href="#计算机得层次" class="headerlink" title="计算机得层次"></a>计算机得层次</h4><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/6.jpg" class>
+
+<ul>
+<li>硬件逻辑层<ul>
+<li>属于电子工程邻域</li>
+</ul>
+</li>
+<li>微程序逻辑层<ul>
+<li>编程语言：微指令集</li>
+<li>微指令所组成得微程序直接交由硬件执行</li>
+</ul>
+</li>
+<li>传统机器层<ul>
+<li>编程语言：CPU指令（机器指令）</li>
+<li>不同架构得CPU使用不同得CPU指令集</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>一条 机器指令 对应 一个 微程序<br>一个 微程序 对应 一组 微指令</p>
+</blockquote>
+<ul>
+<li>操作系统层</li>
+<li>汇编语言层</li>
+</ul>
+<h3 id="计算机单位"><a href="#计算机单位" class="headerlink" title="计算机单位"></a>计算机单位</h3><h4 id="容量单位"><a href="#容量单位" class="headerlink" title="容量单位"></a>容量单位</h4><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/5.png" class>
+
+<ul>
+<li>在物理层面，记录高低电平的信息</li>
+<li>理论上只认识0/1两种状态</li>
+<li>0/1称为bit</li>
+</ul>
+<blockquote>
+<p>为什么网上买的500GB移动硬盘，格式化后只有465GB</p>
+<ul>
+<li>因为硬盘商一般用10进制标记容量</li>
+<li>500 * 1000的3次方 / 1024的3次方 = 465</li>
+</ul>
+</blockquote>
+<h4 id="速度单位"><a href="#速度单位" class="headerlink" title="速度单位"></a>速度单位</h4><h5 id="网络速度"><a href="#网络速度" class="headerlink" title="网络速度"></a>网络速度</h5><ul>
+<li>网络速度单位为 M比特每秒</li>
+<li>容量单位为M字节</li>
+</ul>
+<blockquote>
+<p>为什么电信拉的100M光纤，测试峰值速度只有12M每秒？</p>
+<ul>
+<li>网络常用单位为Mbps</li>
+<li>100M/s=100Mbps=100Mbit/s=（100/8）MB/s=12.5MB/s</li>
+</ul>
+</blockquote>
+<h5 id="CPU速度"><a href="#CPU速度" class="headerlink" title="CPU速度"></a>CPU速度</h5><ul>
+<li>单位HZ</li>
+<li>CPU赫兹描述的是<ul>
+<li>高低电平每秒变化的次数</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算机的字符编码集"><a href="#计算机的字符编码集" class="headerlink" title="计算机的字符编码集"></a>计算机的字符编码集</h3><ul>
+<li>国际 ASCII</li>
+<li>中国<ul>
+<li>GB2312 -&gt;  GBK  -&gt; unicode </li>
+</ul>
+</li>
+<li>unicode可表达世界上所有的语言</li>
+<li>Windows默认使用GBK编码格式</li>
+</ul>
+]]></content>
+      <categories>
+        <category>GUGU</category>
+        <category>KOUKOU</category>
+        <category>计算机组成原理</category>
+      </categories>
       <tags>
-        <tag>Love</tag>
+        <tag>基础</tag>
       </tags>
   </entry>
   <entry>
@@ -182,6 +311,187 @@
       </categories>
       <tags>
         <tag>IT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机组成原理之组成篇</title>
+    <url>/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/</url>
+    <content><![CDATA[<h3 id="冯诺依曼机"><a href="#冯诺依曼机" class="headerlink" title="冯诺依曼机"></a>冯诺依曼机</h3><ul>
+<li>存储器</li>
+<li>运算器</li>
+<li>控制器</li>
+<li>CPU相当于——存储器、运算器、控制器</li>
+<li>内存条、硬盘相当于——存储器<a id="more"></a>
+<h3 id="计算机的总线"><a href="#计算机的总线" class="headerlink" title="计算机的总线"></a>计算机的总线</h3></li>
+</ul>
+<h4 id="总线的分类"><a href="#总线的分类" class="headerlink" title="总线的分类"></a>总线的分类</h4><ul>
+<li>片内总线<ul>
+<li>高集成度芯片（CPU）内部的信息传输线</li>
+<li>连接寄存器与寄存器</li>
+<li>连接寄存器与控制器、运算器之间</li>
+</ul>
+</li>
+<li>系统总线<ul>
+<li>数据总线<ul>
+<li>总要参数<ul>
+<li>位数（总线宽度）</li>
+<li>一般与CPU位数相同（32位、64位）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>地址总线</li>
+<li>控制总线</li>
+<li>总线的仲裁</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算机存储器"><a href="#计算机存储器" class="headerlink" title="计算机存储器"></a>计算机存储器</h3><h4 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h4><h5 id="按存储介质分"><a href="#按存储介质分" class="headerlink" title="按存储介质分"></a>按存储介质分</h5><ul>
+<li>半导体存储器</li>
+<li>磁存储器</li>
+</ul>
+<h5 id="按存取方式分类"><a href="#按存取方式分类" class="headerlink" title="按存取方式分类"></a>按存取方式分类</h5><ul>
+<li>随机存储器（RAM）<ul>
+<li>随机存取</li>
+<li>与位置无关</li>
+</ul>
+</li>
+<li>只读存储器（ROM）</li>
+<li>串行存储器<ul>
+<li>按顺序读取</li>
+<li>与位置有关</li>
+</ul>
+</li>
+</ul>
+<h4 id="存储器的层次结构"><a href="#存储器的层次结构" class="headerlink" title="存储器的层次结构"></a>存储器的层次结构</h4><ol>
+<li>缓存</li>
+<li>主存</li>
+<li>辅存</li>
+</ol>
+<h5 id="CPU与存储器的层次结构"><a href="#CPU与存储器的层次结构" class="headerlink" title="CPU与存储器的层次结构"></a>CPU与存储器的层次结构</h5><img src="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.png" class>
+
+<ul>
+<li>缓存-主存层次<ul>
+<li>解决主存传输速度不足问题</li>
+</ul>
+</li>
+<li>主存-辅存层次<ul>
+<li>解决主存容量不足问题</li>
+</ul>
+</li>
+</ul>
+<h4 id="高速存储器、主存储器和辅存储器"><a href="#高速存储器、主存储器和辅存储器" class="headerlink" title="高速存储器、主存储器和辅存储器"></a>高速存储器、主存储器和辅存储器</h4><h5 id="高速缓存器——集成在CPU内部"><a href="#高速缓存器——集成在CPU内部" class="headerlink" title="高速缓存器——集成在CPU内部"></a>高速缓存器——集成在CPU内部</h5><ul>
+<li>与CPU距离排序<ul>
+<li>寄存器 -&gt; 缓存（一、二或三级）-&gt;内存</li>
+</ul>
+</li>
+<li>==<strong>有寄存器为啥还要缓存</strong>==<ul>
+<li>CPU中有各式各样的寄存器<ul>
+<li>按功能划分</li>
+</ul>
+</li>
+<li>但是缓存是对应整个CPU的<ul>
+<li>相当于一个整体</li>
+</ul>
+</li>
+<li>缓存中数据不一定是需要的，寄存器中数据一定是需要的</li>
+</ul>
+</li>
+</ul>
+<h6 id="高速缓存的替换策略"><a href="#高速缓存的替换策略" class="headerlink" title="高速缓存的替换策略"></a>高速缓存的替换策略</h6><ul>
+<li>随机算法</li>
+<li>先进先出算法</li>
+<li>最不经常使用算法</li>
+<li>最近最少使用算法</li>
+</ul>
+<h5 id="主存储器——内存"><a href="#主存储器——内存" class="headerlink" title="主存储器——内存"></a>主存储器——内存</h5><ul>
+<li><p>RAM</p>
+</li>
+<li><p>RAM通过电容存储数据，必须隔一段时间刷新一次</p>
+</li>
+<li><p>如果掉电，会丢失所有数据</p>
+</li>
+<li><p>CPU与主存储器</p>
+<img src="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/CPU%E4%B8%8E%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8.png" class>
+<h5 id="辅存储器——磁盘"><a href="#辅存储器——磁盘" class="headerlink" title="辅存储器——磁盘"></a>辅存储器——磁盘</h5></li>
+<li><p>移动磁头径向运动读取磁道信息</p>
+</li>
+</ul>
+<h6 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h6><ol>
+<li>先来先服务算法</li>
+<li>最短寻道时间算法</li>
+<li>扫描算法（电梯算法）</li>
+<li>循环算法</li>
+</ol>
+<h3 id="计算机的CPU"><a href="#计算机的CPU" class="headerlink" title="计算机的CPU"></a>计算机的CPU</h3><h4 id="机器指令"><a href="#机器指令" class="headerlink" title="机器指令"></a>机器指令</h4><h5 id="机器指令形式"><a href="#机器指令形式" class="headerlink" title="机器指令形式"></a>机器指令形式</h5><ul>
+<li>机器指令中的地址码指向寄存器或者内存  <img src="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/%E6%8C%87%E4%BB%A4%E8%A1%A8.png" class>
+<h5 id="机器指令操作类型"><a href="#机器指令操作类型" class="headerlink" title="机器指令操作类型"></a>机器指令操作类型</h5></li>
+</ul>
+<ol>
+<li>数据传输</li>
+<li>算术逻辑操作</li>
+<li>移位操作</li>
+<li>控制指令</li>
+</ol>
+<h5 id="机器指令寻址方式"><a href="#机器指令寻址方式" class="headerlink" title="机器指令寻址方式"></a>机器指令寻址方式</h5><img src="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F.png" class>
+
+<h4 id="控制单元"><a href="#控制单元" class="headerlink" title="控制单元"></a>控制单元</h4><blockquote>
+<p>控制单元是整个CPU的指挥控制中心，由指令寄存器IR(Instruction Register)、指令译码器ID(Instruction Decoder)和操作控制器OC(Operation Controller)等，对协调整个电脑有序工作极为重要。它根据用户预先编好的程序，依次从存储器中取出各条指令，放在指令寄存器IR中，通过指令译码(分析)确定应该进行什么操作，然后通过操作控制器OC，按确定的时序，向相应的部件发出微操作控制信号。操作控制器OC中主要包括节拍脉冲发生器、控制矩阵、时钟脉冲发生器、复位电路和启停电路等控制逻辑。</p>
+</blockquote>
+<h5 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h5><img src="/2020/06/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E7%BB%84%E6%88%90%E7%AF%87/cpu%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84.png" class>
+
+<ul>
+<li>程序计数器<ul>
+<li>用来存储下一条指令的<strong>地址</strong></li>
+<li>若是地址被取出，就指向下一条地址</li>
+</ul>
+</li>
+<li>时序发生器<ul>
+<li>CPU依据不同的时序脉冲有节奏的进行工作</li>
+<li>超频：提高工作频率</li>
+</ul>
+</li>
+<li>指令译码器<ul>
+<li>翻译操作码对应的操作</li>
+<li>控制传输地址码对应的数据</li>
+</ul>
+</li>
+<li>各种寄存器<ul>
+<li>指令寄存器<ul>
+<li>存储从高速缓存和主存获取的指令</li>
+</ul>
+</li>
+<li>主存地址寄存器<ul>
+<li>保存<strong>当前正要访问</strong>的内存单元的地址</li>
+</ul>
+</li>
+<li>主存数据寄存器<ul>
+<li>保存<strong>当前正要</strong>读写的内存数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="计算单元"><a href="#计算单元" class="headerlink" title="计算单元"></a>计算单元</h4><blockquote>
+<p>是运算器的核心。可以执行算术运算(包括加减乘数等基本运算及其附加运算)和逻辑运算(包括移位、逻辑测试或两个值比较)。相对控制单元而言，运算器接受控制单元的命令而进行动作，即运算单元所进行的全部操作都是由控制单元发出的控制信号来指挥的，所以它是执行部件。</p>
+</blockquote>
+<h5 id="结构-1"><a href="#结构-1" class="headerlink" title="结构"></a>结构</h5><ul>
+<li>数据缓冲器</li>
+<li>ALU</li>
+<li>通用寄存器</li>
+<li>状态字寄存器</li>
+</ul>
+<h4 id="存储单元"><a href="#存储单元" class="headerlink" title="存储单元"></a>存储单元</h4><blockquote>
+<p>包括CPU片内缓存和寄存器组，是CPU中暂时存放数据的地方，里面保存着那些等待处理的数据，或已经处理过的数据，CPU访问寄存器所用的时间要比访问内存的时间短。采用寄存器，可以减少CPU访问内存的次数，从而提高了CPU的工作速度。但因为受到芯片面积和集成度所限，寄存器组的容量不可能很大。寄存器组可分为专用寄存器和通用寄存器。专用寄存器的作用是固定的，分别寄存相应的数据。而通用寄存器用途广泛并可由程序员规定其用途，通用寄存器的数目因微处理器而异。这个是我们以后要介绍这个重点，这里先提一下。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>GUGU</category>
+        <category>KOUKOU</category>
+        <category>计算机组成原理</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
       </tags>
   </entry>
   <entry>
@@ -715,135 +1025,6 @@
         <category>GUGU</category>
         <category>KOUKOU</category>
         <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机组成原理之概述篇</title>
-    <url>/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/</url>
-    <content><![CDATA[<h2 id="计算机组成原理之概述篇"><a href="#计算机组成原理之概述篇" class="headerlink" title="计算机组成原理之概述篇"></a>计算机组成原理之概述篇</h2><h3 id="计算机的发展简史"><a href="#计算机的发展简史" class="headerlink" title="计算机的发展简史"></a>计算机的发展简史</h3><ul>
-<li>四个阶段<ol>
-<li>电子管</li>
-<li>晶体管</li>
-<li>集成电路（IC）<ul>
-<li>在该阶段产生了操作系统</li>
-</ul>
-</li>
-<li>超大规模集成电路<a id="more"></a>
-<h3 id="计算机的分类"><a href="#计算机的分类" class="headerlink" title="计算机的分类"></a>计算机的分类</h3></li>
-</ol>
-</li>
-</ul>
-<ol>
-<li>超级计算机</li>
-<li>大型计算机</li>
-<li>迷你计算机（服务器）</li>
-<li>工作站（做视频，画图 – 超高性能）</li>
-<li>微型计算机（个人计算机）</li>
-</ol>
-<h3 id="计算机的体系结构"><a href="#计算机的体系结构" class="headerlink" title="计算机的体系结构"></a>计算机的体系结构</h3><h4 id="冯诺依曼体系"><a href="#冯诺依曼体系" class="headerlink" title="冯诺依曼体系"></a>冯诺依曼体系</h4><ul>
-<li>思想：存储程序指令，设计通用电路</li>
-</ul>
-<img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/1.jpg" class title="计算机的体系与结构">
-
-<h5 id="冯诺依曼瓶颈"><a href="#冯诺依曼瓶颈" class="headerlink" title="冯诺依曼瓶颈"></a>冯诺依曼瓶颈</h5><ul>
-<li>问题：存储器的速率跟不上CPU的运行效率</li>
-<li>表现：CPU经常空转，等到存储器的数据传输<ul>
-<li>CPU空转：CPU通电后就会一直运转，一直执行指令，若无指令就原地旋转。<ul>
-<li>多核CPU：至少有一个CPU不会停止</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="现代计算机结构"><a href="#现代计算机结构" class="headerlink" title="现代计算机结构"></a>现代计算机结构</h4><ul>
-<li>解决了冯诺依曼瓶颈</li>
-</ul>
-<img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/2.jpg" class>
-
-<h3 id="计算机层次与编程语言"><a href="#计算机层次与编程语言" class="headerlink" title="计算机层次与编程语言"></a>计算机层次与编程语言</h3><h4 id="程序编译与程序解释"><a href="#程序编译与程序解释" class="headerlink" title="程序编译与程序解释"></a>程序编译与程序解释</h4><h5 id="程序编译"><a href="#程序编译" class="headerlink" title="程序编译"></a>程序编译</h5><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/3.jpg" class>
-
-<h5 id="程序解释"><a href="#程序解释" class="headerlink" title="程序解释"></a>程序解释</h5><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/4.jpg" class>
-
-<h5 id="程序编译与程序解释的区别"><a href="#程序编译与程序解释的区别" class="headerlink" title="程序编译与程序解释的区别"></a>程序编译与程序解释的区别</h5><ul>
-<li><p>编译的时候编译器会把源文件处理一遍，生成一个目标文件，而解释就是边处理源文件边执行。</p>
-</li>
-<li><p>编译相当于做好一桌子菜再开吃，解释就是吃火锅，得一边煮一边吃，所以解释执行效率会低一些。</p>
-</li>
-</ul>
-<h4 id="计算机得层次"><a href="#计算机得层次" class="headerlink" title="计算机得层次"></a>计算机得层次</h4><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/6.jpg" class>
-
-<ul>
-<li>硬件逻辑层<ul>
-<li>属于电子工程邻域</li>
-</ul>
-</li>
-<li>微程序逻辑层<ul>
-<li>编程语言：微指令集</li>
-<li>微指令所组成得微程序直接交由硬件执行</li>
-</ul>
-</li>
-<li>传统机器层<ul>
-<li>编程语言：CPU指令（机器指令）</li>
-<li>不同架构得CPU使用不同得CPU指令集</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>一条 机器指令 对应 一个 微程序<br>一个 微程序 对应 一组 微指令</p>
-</blockquote>
-<ul>
-<li>操作系统层</li>
-<li>汇编语言层</li>
-</ul>
-<h3 id="计算机单位"><a href="#计算机单位" class="headerlink" title="计算机单位"></a>计算机单位</h3><h4 id="容量单位"><a href="#容量单位" class="headerlink" title="容量单位"></a>容量单位</h4><img src="/2020/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B9%8B%E6%A6%82%E8%BF%B0%E7%AF%87/5.png" class>
-
-<ul>
-<li>在物理层面，记录高低电平的信息</li>
-<li>理论上只认识0/1两种状态</li>
-<li>0/1称为bit</li>
-</ul>
-<blockquote>
-<p>为什么网上买的500GB移动硬盘，格式化后只有465GB</p>
-<ul>
-<li>因为硬盘商一般用10进制标记容量</li>
-<li>500 * 1000的3次方 / 1024的3次方 = 465</li>
-</ul>
-</blockquote>
-<h4 id="速度单位"><a href="#速度单位" class="headerlink" title="速度单位"></a>速度单位</h4><h5 id="网络速度"><a href="#网络速度" class="headerlink" title="网络速度"></a>网络速度</h5><ul>
-<li>网络速度单位为 M比特每秒</li>
-<li>容量单位为M字节</li>
-</ul>
-<blockquote>
-<p>为什么电信拉的100M光纤，测试峰值速度只有12M每秒？</p>
-<ul>
-<li>网络常用单位为Mbps</li>
-<li>100M/s=100Mbps=100Mbit/s=（100/8）MB/s=12.5MB/s</li>
-</ul>
-</blockquote>
-<h5 id="CPU速度"><a href="#CPU速度" class="headerlink" title="CPU速度"></a>CPU速度</h5><ul>
-<li>单位HZ</li>
-<li>CPU赫兹描述的是<ul>
-<li>高低电平每秒变化的次数</li>
-</ul>
-</li>
-</ul>
-<h3 id="计算机的字符编码集"><a href="#计算机的字符编码集" class="headerlink" title="计算机的字符编码集"></a>计算机的字符编码集</h3><ul>
-<li>国际 ASCII</li>
-<li>中国<ul>
-<li>GB2312 -&gt;  GBK  -&gt; unicode </li>
-</ul>
-</li>
-<li>unicode可表达世界上所有的语言</li>
-<li>Windows默认使用GBK编码格式</li>
-</ul>
-]]></content>
-      <categories>
-        <category>GUGU</category>
-        <category>KOUKOU</category>
-        <category>计算机组成原理</category>
       </categories>
       <tags>
         <tag>基础</tag>
